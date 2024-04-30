@@ -1,0 +1,28 @@
+.wrapper {
+  background-color: rgb(237, 238, 240);
+  padding: 40px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.drop-area {
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+.image {
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+}

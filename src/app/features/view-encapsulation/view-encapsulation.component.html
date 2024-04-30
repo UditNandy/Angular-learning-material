@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <h2>View Encapsulation</h2>
+  <ul>
+    <li>
+      It is a behaviour in angular where component's CSS styles are encapsulated
+      within the component's view and donot effect the rest of the application.
+    </li>
+    <li>
+      It helps in leaking css styles out of a component and affecting other
+      parts of the application.
+    </li>
+    <li>Generally css styles are global scoped.</li>
+    <li>
+      In angular there are 3 types of view encapsulation.
+      <ul>
+        <li>
+          <strong>Emulated (default)</strong> : Here angular attaches a unique
+          attribute to all the component's elements and the css classes are
+          applied only on those unique attributes.Each component has its own
+          unique attribute which is same througout the component.
+        </li>
+        <li>
+          <strong>None </strong> : It means no view encapsulation will happen.
+          We can use the css classes present in the parent's css style sheet.To
+          achieve this we need to add
+          <strong>encapsulation:ViewEncapsulation</strong>.None in component
+          metadata.
+        </li>
+        <li>
+          <strong>Shadow DOM </strong> : Here if any global css is present then
+          in that case we can use shadow dom to remove the component from the
+          affect of global css.
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

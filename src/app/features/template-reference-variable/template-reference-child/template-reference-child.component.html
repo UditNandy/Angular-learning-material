@@ -1,0 +1,10 @@
+<div>
+  Inside template reference child
+  <input [(ngModel)]="childValue" />
+</div>
+<div>Content Starts</div>
+<h4><ng-content select=".first"></ng-content></h4>
+<div>Content Ends</div>
+<div>Content Starts again</div>
+<h4><ng-content select="#second"></ng-content></h4>
+<div>Content Ends again</div>

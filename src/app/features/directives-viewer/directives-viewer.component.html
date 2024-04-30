@@ -1,0 +1,124 @@
+<h2>Directives</h2>
+
+<div class="wrapper">
+  <ul>
+    <li>A directive is an instruction to the DOM.</li>
+    <li>
+      It is used to change behaviour ,manipulate the dom or add and remove dom
+      elements.
+    </li>
+    <li>
+      Directives are of 3 types
+      <ul>
+        <li>
+          <strong>Component Directive</strong> : It is the angular component. It
+          is a directive with a template. It is a directive because it is used
+          to manipulate the DOM.
+        </li>
+        <li>
+          <strong>Attribute Directive</strong> : It is used to change the
+          appearence or behaviour of a DOM element. It is indicated by [ ].
+          Example : ngClass, ngStyle.
+        </li>
+        <li>
+          <strong>Structural Directive</strong> : It is used to add or remove an
+          element from the DOM. It is indicated by *. Example : ngFor, ngIf.
+        </li>
+        <li>
+          * tells angular that the directive is a structual directive and
+          angular moves the directive into a ng-template and then uses [ngIf]
+          like case.
+        </li>
+      </ul>
+    </li>
+    <li>
+      To make a class directive we have to add
+      <strong> {{ "@Directive" }}</strong> decorator to it.
+    </li>
+  </ul>
+  <div class="image">
+    <img src="./assets/images/structural_directive.png" />
+    <img src="./assets/images/structural_directive1.png" />
+  </div>
+</div>
+
+<div class="wrapper">
+  <h2>Custom Directive</h2>
+  <ul>
+    <li>
+      When ever we attach a directive selector with any html element a reference
+      of that element needs to be injected in the directive class.
+    </li>
+    <li>
+      To achieve this we need to inject <strong>ElementRef</strong> in the
+      directive.
+    </li>
+    <li>
+      ElementRef has a <strong>nativeElement</strong> property which gives us a
+      direct access to the DOM. We can make modifications to the DOM using this.
+    </li>
+    <li>
+      Changing the DOM using nativeElement is not a good practice due to :
+      <ul>
+        <li>
+          Angular keeps the component and view in sync using templates,
+          databindings and change detection, but all of them are bypassed we if
+          manipulate the DOM directly.
+        </li>
+        <li>
+          DOM manipulation works only in browsers, this approach will not be
+          useful in other platforms like server-side rendering, desktop or
+          mobile apps, etc.
+        </li>
+        <li>
+          The DOM apis doesnot sanitise the data. Hence it is possible to inject
+          a script, therby, opening our app an easy target for the XSS Injection
+          attacks.
+        </li>
+      </ul>
+    </li>
+    <li>
+      A better approach to manipulate the DOM is by using
+      <strong>Renderer2</strong> class.
+    </li>
+    <li>
+      It allows us to manipulate the DOM without accessing the DOM elements
+      directly, by providing a layer of abstraction between the DOM elements and
+      component code.
+    </li>
+    <li>
+      <strong>@HostListener</strong>: It listens to the DOM events on the host
+      element and it reacts to that event by executing an event handler method.
+    </li>
+    <li>
+      <strong>@HostBinding</strong> : It binds host element property with a
+      property of a directive or component class.
+    </li>
+    <li>
+      To achieve property binding in directives we can simply add input
+      decorator to a property in the directive and use that property in the html
+      element where the directive has been attached.
+    </li>
+    <li>
+      To assign the value directly to the directive like
+      <strong>[ngClas]=""</strong> we can set an alias with same name of
+      directive selector to the input decorator and that specific property
+      binding will happen with the selector name itself.
+    </li>
+    <li>
+      For creating a custom structural directive please check the code customIf.
+    </li>
+  </ul>
+  Example : <span highlighter>Hello</span> &nbsp;
+  <span highlighter [backgroundColor]="'black'">Hello</span>
+  <div>
+    @HostBinding Example : <input hostBindingExample /> Here we are setting file
+    type using @HostBinding.
+  </div>
+  <div>
+    CustomIf example :<span *customIf="customIfDisplay">Hello from span</span>
+    <button (click)="customIfDisplay = !customIfDisplay">Show/Hide</button>
+  </div>
+</div>
+
+<div appDragAndDrop class="drop-area">Drop Here</div>

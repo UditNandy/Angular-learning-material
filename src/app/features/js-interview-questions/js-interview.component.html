@@ -1,0 +1,166 @@
+<h2>JS Interview Questions</h2>
+<div class="wrapper">
+  <h3>Fundamentals</h3>
+  <ul>
+    <li>
+      <strong>Different ways to create object ?</strong>:
+      <ul>
+        <li>Object literal</li>
+        <li>new keyword</li>
+        <li>Object.create</li>
+        <li>constructor function</li>
+        <li>Object.assign</li>
+      </ul>
+    </li>
+    <li><strong>Prototye Chaning</strong></li>
+    <li><strong>Call, apply, bind</strong></li>
+    <li>
+      <strong>What is JSON</strong> : Stands for javascript object notation is a
+      lightweight data interchange format that is easy for humans to read and
+      write and easy for machines to parse and generate.
+    </li>
+    <li><strong>array slice vs array splice</strong></li>
+    <li>
+      <strong>Object vs Map</strong>
+      <ul>
+        <li>
+          The keys in objects are generally strings or symbols where as in map
+          the key can be anything like functions,objects,arrays,etc.
+        </li>
+        <li>
+          The keys in a Map are ordered while keys added to Object are not.
+          Thus, when iterating over it, a Map object returns keys in the order
+          of insertion.
+        </li>
+        <li>Maps are iterable where as obj are not.</li>
+        <li>Map uses more memory in comparision to objects.</li>
+      </ul>
+    </li>
+    <li><strong>First Class functions ?</strong></li>
+    <li>
+      <strong>First order functions ?</strong> :It doesn't accepts another
+      function as argument or returns another function.
+    </li>
+    <li>
+      <strong>Higher order functions ?</strong> : A function that accepts
+      another function as argument or returns another function.
+    </li>
+    <li>
+      <strong>Pure functions</strong> : If the output of a function depends only
+      on the input parameters then it is known as pue function. It will always
+      return the same output for same input.
+      <div>Example : {{ "(a,b)=>{return a+b;}" }}</div>
+    </li>
+    <li>
+      <strong>Impure Functions</strong> : The output of a function depends not
+      only on its input parameter but also on some other parameters. They
+      provides different output for same input.
+      <div>Example : {{ "total=0 (a)=>{ total=total+a; return total;}" }}</div>
+    </li>
+    <li><strong>var, let, const</strong></li>
+    <li>
+      <strong>
+        How do you redeclare variables in a switch block without an error?
+      </strong>
+      : Always uses opening and closing braces to write the body of cases in
+      switch. If we don't use braces we will not be always to declare a let or
+      const variable with same name, we can declare var without any error.
+    </li>
+    <li>
+      <strong>Temporal Dead Zone</strong> : Time difference between hositing a
+      variable and assign the variable a value. We can access var but we cannot
+      access let in temporal dead zone.
+    </li>
+    <li>
+      <strong>IIFE (Immediately Invoked Function Expression) </strong> : A
+      function which gets invoked as soon as it is declared.{{
+        "(function () { // logic here })();"
+      }}
+    </li>
+    <li><strong>encodeURI, decodeURI, encodeComponentURI</strong></li>
+    <li><strong>memoization</strong></li>
+    <li><strong>Hoisting</strong></li>
+    <li><strong>classes in ES6</strong></li>
+    <li><strong>closures</strong></li>
+    <li>
+      <strong>Modules</strong> : It is a way to organise code into reusable
+      units. There are two type of modules
+      <ul>
+        <li>
+          ES Modules
+          <div>{{ "export function add(a, b) {return a + b;}" }}</div>
+          <div>{{ "import { add } from './math.js';" }}</div>
+        </li>
+        <li>
+          Common JS modules
+          <div>{{ "exports.add = function(a, b) {return a + b;};" }}</div>
+          <div>{{ "const { add } = require('./math.js');" }}</div>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Scopes</strong>: block, function, lexical,</li>
+    <li><strong>Service Worker and web worker</strong></li>
+    <li>
+      <strong>Index DB (go in detail)</strong> : IndexedDB is a low-level API
+      for client-side storage of larger amounts of structured data, including
+      files/blobs. This API uses indexes to enable high-performance searches of
+      this data.
+    </li>
+    <li>
+      <strong>Web Storage</strong> : It is a api by which we can store data in
+      key value format inside the browser.
+      <ul>
+        <li>
+          Local Storage : Data stored in localStorage persists even after the
+          browser is closed and reopened. It has no expiration time and remains
+          stored until explicitly removed. It will be accessible to all the
+          tabs.
+        </li>
+        <li>
+          Session Storage : It stores data for one session and the data is lost
+          when the browser tab is closed
+        </li>
+      </ul>
+    </li>
+    <li><strong>Cookies</strong></li>
+    <li><strong>Strict mode in JS</strong></li>
+    <li><strong>Sockets vs Server-sent events</strong></li>
+    <li>
+      <strong>purpose of double exclamation (!!)</strong> : I will give us the
+      boolean value when used infront of a variable. Like it will give the falsy
+      or truthy value. Example :{{ "let a=!!1" }} returns true.
+    </li>
+    <li><strong>Delete operator</strong></li>
+    <li><strong>window vs document</strong></li>
+    <li><strong>undeclared vs undefined</strong></li>
+    <li><strong>event flow(go through it)</strong></li>
+    <li><strong>What is the use of preventDefault method</strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+    <li><strong></strong></li>
+  </ul>
+</div>

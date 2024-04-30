@@ -1,0 +1,278 @@
+<h2>CSS</h2>
+
+<div class="wrapper">
+  <strong>Priority</strong> : Inline CSS -> Internal and External(Once which is
+  declared at last has high priority)
+
+  <h4>Selectors</h4>
+  <ul>
+    <li>
+      Simple Selectors
+      <ul>
+        <li>Element Selector</li>
+        <li>Class Selector</li>
+        <li>Id Selector</li>
+      </ul>
+    </li>
+    <li>Universal Selector (*) : All</li>
+    <li>Grouping selector : Example .wrapper, div, #first{{ "{}" }}</li>
+    <li>Nested Selector (>) : Class or id inside another class or id</li>
+  </ul>
+  <div>
+    <strong>Note</strong>: Class and id selectors cannot start with a number.
+  </div>
+  <div>
+    <strong>
+      Priority Order : id > class > element. We can use !important to increase a
+      selector's priority.
+    </strong>
+  </div>
+  <div><strong>Sudo selector</strong> : Example : p:hover</div>
+</div>
+
+<div class="wrapper">
+  <h3>Units in css</h3>
+  <ul>
+    <li>
+      <strong>%age</strong> : Takes the space relative to its parent by the
+      amount specified.
+    </li>
+    <li>
+      <strong>vw (view width)</strong> : Takes the space relative to the screen
+      not relative to parent.
+    </li>
+    <li><strong>vh (view height)</strong> : Same as vw but used for height.</li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Display</h3>
+  <ul>
+    <li>
+      <strong>Block</strong> : It takes up the full width available and starts
+      on a new line.Examples include div, p, h1, h6 and li.
+    </li>
+    <li>
+      <strong>Inline</strong> : It does not start on a new line and only takes
+      up as much width as necessary. Examples include span, a, strong and em.
+    </li>
+    <li>
+      <strong>Inline block</strong> : It behaves like an inline element but can
+      have block-level properties like width and height. It does not start on a
+      new line and only takes up as much width as necessary.
+    </li>
+    <li>
+      <strong>None</strong> : The element is removed from the normal document
+      flow and does not take up any space.
+    </li>
+    <li>
+      <strong>Flex</strong> : The element becomes a flex container and its
+      children become flex items.
+    </li>
+    <li>
+      <strong>Grid</strong> : The element becomes a grid container and its
+      children become grid items.
+    </li>
+  </ul>
+  <strong>Note</strong> : We can only set the width of block elements not of
+  inline elements.
+</div>
+
+<div class="wrapper">
+  <h3>Box Sizing</h3>
+  The box-sizing property in CSS is used to control how the width and height of
+  an element are calculated.
+  <ul>
+    <li>
+      <strong>Border Box</strong> : The height and width we specify includes
+      padding and content.If width is 100 and height is 100 then any padding
+      specified will be included withing the given dimensions.If the padding and
+      border size go beyond the specific width and height then the size will
+      increase.
+    </li>
+    <li>
+      <strong>Content Box</strong> : The height and width we specify excludes
+      padding and content.If width is 100 and padding is 100 then actual width
+      will be 300.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Positioning</h3>
+  <ul>
+    <li>
+      <strong>Static</strong> : Positions to the normal flow. There is no effect
+      of top, buttom, etc.
+    </li>
+    <li>
+      <strong>Absolute</strong> :
+      <ul>
+        <li>
+          It is used to position an element relative to its closest positioned
+          parent (i.e. a parent which is not static). If no positioned parent is
+          found it will position relative to the first parent that is view port.
+        </li>
+        <li>
+          When an element is positioned absolutely, it is taken out of the
+          normal document flow, meaning it does not affect the position of other
+          elements.
+        </li>
+        <li>
+          If we don't specify any top, button, etc then the element will come
+          out of the normal flow and other elements will think that no element
+          is present in that space but it will not change its position.
+        </li>
+        <li>So eventually it will get overlapped with its next element.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Relative</strong> :
+      <ul>
+        <li>We can alter the position relative to its normal position.</li>
+        <li>
+          If we don't specify top, left, etc, then the element will present in
+          the normal flow and it will not get effected.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Fixed</strong> :
+      <ul>
+        <li>
+          Position an element relative to the viewport, which means it stays in
+          the same position even when the page is scrolled.
+        </li>
+        <li>
+          When an element is set to <strong>fixed</strong>, it is taken out of
+          the normal document flow, similar to <strong>absolute</strong>;
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Sticky</strong> :
+      <ul>
+        <li>
+          It behaves like <strong>relative</strong> until it reaches a specified
+          position of top left,buttom,right and after that it behaves like
+          <strong>fixed</strong>.
+        </li>
+        <li>
+          If we donot specify any top, left, right, left it will behave like
+          <strong>relative</strong>.
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h4>Example</h4>
+  <ul>
+    <li><strong>Box 1</strong> : Absolute to its parent (container)</li>
+    <li><strong>Box 2</strong> : Relative to its original position</li>
+  </ul>
+  <div class="container">
+    <div class="box" id="box1">Absolute</div>
+    <div class="box" id="box2">Relative</div>
+    <div class="box" id="box3">Static</div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h3>Transform</h3>
+  It applies a 2d or 3d transformation to an element.
+  <ul>
+    <li>
+      <strong>Scale</strong> : Used to increase or decrease the size of a
+      element in x, y and z directions. (px)
+    </li>
+    <li>
+      <strong>Skew</strong> :Used to skew(twist) an element along x and y
+      axis.(degree)
+    </li>
+    <li>
+      <strong>Translate</strong> :Used to shift the element from its original
+      position (px)
+    </li>
+    <li>
+      <strong>Rotate</strong> :Used to rotate the element from its original
+      position (deg)
+    </li>
+  </ul>
+  <h4>Transform Origin Property</h4>
+  <ul>
+    <li>Allows us to change the position of transform elements.</li>
+    <li>Supported values : left, center, right, length, %.</li>
+    <li>
+      Tells us on which point does the transformation needs to happen (basically
+      the index or axis).
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h2>Transition Property</h2>
+  <ul>
+    <li>
+      It helps us to change the property values smoothly over a specified
+      duration.
+    </li>
+    <li>
+      To create a transisition property we need two things.
+      <ul>
+        <li>CSS property we want to add an effect to.</li>
+        <li>Duration of the effect.</li>
+      </ul>
+    </li>
+    <li>
+      If duration is not specified the transition will have no effect as the
+      default duration is 0.
+    </li>
+  </ul>
+
+  Different Types of transitions are
+  <ul>
+    <li>
+      <strong>transition-delay</strong> : Adds a delay before starting the
+      transition.
+    </li>
+    <li>
+      <strong>transition-property</strong> :Defines on which specific property
+      the transition needs to be applied, like background-color.
+    </li>
+    <li>
+      <strong>transition-duration</strong> : Defines the duration for
+      transition.
+    </li>
+    <li>
+      <strong>transition-timing-funtion</strong> : It can have the following
+      values.
+      <ul>
+        <li>
+          <strong>ease (default)</strong> : Starts the event with slow start,
+          then speeds up and then ends slowly.
+        </li>
+        <li>
+          <strong>linear</strong> : Specifies a timing effect with same speed.
+        </li>
+        <li>
+          <strong>ease-in</strong> : Specifies a timing effect with slow start.
+        </li>
+        <li>
+          <strong>ease-out</strong> : Specifies a timing effect with slow end.
+        </li>
+        <li>
+          <strong>ease-in-out</strong> : Specifies a timing effect with slow
+          start and end.
+        </li>
+        <li>
+          <strong>cubic-bezier(n,n,n,n)</strong> : Lets us define our own
+          function in a cubic-bezier function.
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  Example
+  <div class="container">
+    <div class="transition"></div>
+  </div>
+</div>

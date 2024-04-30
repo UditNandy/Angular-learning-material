@@ -1,0 +1,97 @@
+<h2>Pipes</h2>
+<div class="wrapper">
+  <ul>
+    <li>
+      Pipes in Angular are used to transform or format data before displaying it
+      in the view.
+    </li>
+    <li>
+      It takes the data as input and it formats or transforms that data before
+      displaying it in the template.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Custom Pipes</h3>
+  <ul>
+    <li>
+      While creating a custom pipe the <strong>PipeTransform</strong> Interface
+      needs to be implemented.
+    </li>
+    <li>
+      PipeTransform Interface will provide us a transform method in which we
+      will get two parameters value and the args we can do the operations and
+      return the new value.The value parameter will take the data on which we
+      are implementing the pipe.The second parameter has to be sent by : .
+    </li>
+    <li>
+      <strong>Percentage Pipe example</strong>:
+      {{ 0.11 | customPercentage : 1 }}
+    </li>
+    <li><strong>Async pipe example</strong>: {{ obs$ | async }}</li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Pure Pipe</h3>
+  <ul>
+    <li>
+      It is a pipe which gets called whenever there is a pure change of input
+      value.
+    </li>
+    <li>By default every pipe is a pure pipe.</li>
+    <li>
+      If a pipe is being used on a primitive type like string, boolean, number,
+      etc and if the value of that primitive type changes, it is considered as
+      pure change.
+    </li>
+    <li>
+      If a pipe is being used on a reference type and the reference changes that
+      it will also considered as pure change.
+    </li>
+  </ul>
+</div>
+<div class="wrapper">
+  <h3>Inpure Change</h3>
+  <ul>
+    <li>
+      If a pipe is being used on a reference type and the reference does not
+      changes only it's value changes then it will be considered as an impure
+      change.
+    </li>
+    <li>
+      A pipe is known as impure if it gets executed irrespective of its pureness
+      in every change detection cycle.
+    </li>
+    <li>To make a pipe impure we can add pure:false in pipe metadata.</li>
+    <li>
+      We should avoid using impure pipes because it will get executed for all
+      the change detection cycle.
+    </li>
+    <li>
+      For sorting and filtering we should not use pipes because in case of pure
+      pipe changes will not reflect properly if any value gets added and in case
+      of impure pipe it will get executed in every change detection cycle.
+    </li>
+    <li>
+      Impure Change Example :
+      <div>
+        Full List :
+        <span *ngFor="let employee of employeeList"
+          >{{ employee.name }} &nbsp;</span
+        >
+      </div>
+      <div>
+        <input type="radio" value="male" [(ngModel)]="gender" /> Male
+        <input type="radio" value="female" [(ngModel)]="gender" /> Female
+      </div>
+      <strong>Filter Pipe Example</strong>:
+      <span *ngFor="let employee of employeeList | customFilter : gender">
+        {{ employee.name }}
+      </span>
+      Name:<input [(ngModel)]="name" /> Gender:<input [(ngModel)]="gender1" />
+      <button (click)="onSubmit()">Push</button>
+    </li>
+  </ul>
+</div>

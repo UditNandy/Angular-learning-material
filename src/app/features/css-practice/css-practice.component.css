@@ -1,0 +1,45 @@
+.container {
+  background-color: khaki;
+  position: relative;
+  height: 150px;
+}
+
+.box {
+  display: inline-block;
+  margin: 4px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid red;
+}
+
+#box1 {
+  position: absolute;
+  top: 10px;
+  left: 360px;
+}
+
+#box2 {
+  position: relative;
+  top: 10px;
+}
+
+.transform{
+    height: 100px;
+    width: 100px;
+    background-color: tomato;
+    transform: rotate(45deg) skew(30deg,40deg);
+}
+
+.transition{
+  height: 100px;
+  width: 100px;
+  background-color: tomato;  
+  transition: 3s linear;
+  transition-delay: 1s ;
+}
+
+.transition:hover{
+  background-color: skyblue;
+  transform: rotate(45deg) skew(20deg,30deg);
+  border-radius: 100%;
+}

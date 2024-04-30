@@ -1,0 +1,212 @@
+<h2>Lifecycle hooks</h2>
+
+<div class="wrapper">
+  <ul>
+    <li>
+      Whenever angular encounters a new component selector it will instantiate a
+      new version of the class and will render it to DOM.
+    </li>
+    <li>In order to instantiate a class its constructor will be called.</li>
+    <li>
+      If no constructor is declared explicitly a default parameterless
+      constructor will be called.
+    </li>
+    <li>
+      If we send any data through input property then during the time the child
+      components constructor is called the input property is not yet updated
+      with the value passed but with initial value if any.
+    </li>
+    <li>
+      Projected contents are also not called durring the time the constructor is
+      called.
+    </li>
+    <li>
+      By the time the constructor of a component is called, only its instance is
+      created and initiated. View is not rendered and input properties are not
+      updated.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Steps involved in Angular components lifecycle</h3>
+  <ul>
+    <li>
+      When an angular application starts, it first creates and renders the root
+      component.
+    </li>
+    <li>
+      Then it creates its children and their children. In this way it forms a
+      tree of components.
+    </li>
+    <li>
+      Once angular loads the component it starts the process of rendering the
+      view.To do that it needs to check the input properties, evaluates the data
+      bindings and expressions, renders the projected content, etc.
+    </li>
+    <li>
+      Angular then removes the component from the DOM when its no longer needed.
+    </li>
+    <li>Angular tells us when these events happen using lifecycle hooks.</li>
+  </ul>
+</div>
+<div class="wrapper">
+  <h3>Change Detection cycle</h3>
+  <ul>
+    <li>
+      It is a mechanism by which, Angular keeps the view template in sync with
+      the component class.
+    </li>
+    <li>
+      Its is a process in which the view gets updated whenever the state of a
+      component changes or on every event that happens on the DOM.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngOnChanges</h3>
+  <ul>
+    <li>
+      It gets called in the begining, when a component is created and its input
+      bound properties are updated.
+    </li>
+    <li>
+      It gets called everytime when the input properties of a component gets
+      updated.
+    </li>
+    <li>
+      It accepts a parameter <strong>SimpleChanges</strong> which returns the
+      previous and current values.
+    </li>
+    <li>
+      The simple change only keeps track of input property changes through
+      property bindings, not if initial value was present.
+    </li>
+    <li>
+      If current and previous values are same then ngOnChanges will not be
+      called.
+    </li>
+    <li>
+      It gets called at the 1st only if any input properties are attached to the
+      selector, or else ngOnInit is called first.
+    </li>
+    <li>
+      When we take about change in input property we mean to say that the
+      variable associated with the input property's reference is same only its
+      valu gets updated.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngOnInit</h3>
+  <ul>
+    <li>Its get called only once durring the first change detection cycle.</li>
+    <li>
+      By the time ngOnInit is called none of its child components, projected
+      contents or views are available. So we cannot use @ViewChild,
+      @ContentChild, etc here.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngDoCheck</h3>
+  <ul>
+    <li>It gets called after every change detection cycle.</li>
+    <li>
+      We can use it to make any custom change detection check whenever angular
+      fails to detect any change.
+    </li>
+    <li>Initially it gets called after ngOnInit.</li>
+  </ul>
+  <button (click)="(true)">Trriger Change Detection Cycle</button>
+</div>
+
+<div class="wrapper">
+  <h3>ngAfterContentInit (Component Only)</h3>
+  <ul>
+    <li>
+      It gets called after the components projected component has been fully
+      initialised and is injected into component's view.
+    </li>
+    <li>It will also get called if no projected content is present.</li>
+    <li>
+      It is a perfect place where we can access our @ContentChild and
+      @ContentChildren.
+    </li>
+    <li>
+      It gets called only once, durring the first change detection cycle. After
+      that if the projected content changes, this lifecycle hook will not be
+      called.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngAfterContentChecked (Component Only)</h3>
+  <ul>
+    <li>It gets called after ngAfterContentInit hook.</li>
+    <li>
+      It gets called after every change detection cycle and when Angular has
+      finished initializing and checking projected content.
+    </li>
+    <li>
+      It is same as ngDoCheck but it triggers after the
+      <strong>ng-content</strong> has also been checked.
+    </li>
+    <li>
+      If ng-content's value gets changed from the parent then we can detect it
+      here.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngAfterViewInit (Component Only)</h3>
+  <ul>
+    <li>
+      It gets called only after the view and all its child components are
+      initialised.
+    </li>
+    <li>
+      It is a perfect place to access @ViewChild and @ViewChildren variable.
+    </li>
+    <li>It will also be called even if no child component is present.</li>
+    <li>
+      By the time this hook is called all the components, views, child
+      components, ng-contents are finished initialization and are completely
+      ready.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngAfterViewChecked (Component Only)</h3>
+  <ul>
+    <li>
+      It gets fired after Angular checks and updates the component's view
+      template and all its child component's view templates.
+    </li>
+    <li>
+      It is called after every change detection cycle after the view childs are
+      checked.
+    </li>
+    <li>It is similar to ngAfterDoCheck and ngAfterContentInit.</li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>ngOnDestroy</h3>
+  <ul>
+    <li>
+      It gets fired just before a component is destroyed or removed from the
+      DOM.
+    </li>
+    <li>
+      It is a great place to do some clean up work like unsubscribing from an
+      observable or detaching an event handler.
+    </li>
+  </ul>
+</div>

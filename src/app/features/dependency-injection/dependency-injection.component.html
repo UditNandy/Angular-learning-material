@@ -1,0 +1,156 @@
+<h2>Dependency Injection</h2>
+
+<div class="wrapper">
+  <h3>Dependency</h3>
+  <ul>
+    <li>
+      It is a relation between two components where one relies on the other to
+      work properly.
+    </li>
+    <li>
+      Tight Coupling: Refers to a situation where components or services are
+      highly dependent on each other, making it difficult to reuse or modify
+      them independently.
+    </li>
+    <li>
+      <strong>Dependency Injection</strong> is a design pattern in which the
+      class recives its dependencies from an external source rather then
+      creating them itself.
+    </li>
+    <li>
+      Angular injector will provide us the istance of a service inside our
+      component. We can achieve it by passing the variables in the constructor.
+    </li>
+    <li>
+      <strong>Note</strong> : In Angular, if you don't specify an access
+      specifier (such as private, public, or protected) in the constructor
+      parameters, TypeScript treats them as local parameters within the
+      constructor scope. This means they are not automatically assigned to class
+      properties, and thus, they are not accessible outside of the constructor.
+    </li>
+    <li>
+      <strong>Note</strong> : We can also inject the service using the inject()
+      method.
+    </li>
+  </ul>
+
+  <h3>Hierarcical Dependency Injection</h3>
+  <ul>
+    <li>
+      Generally when we inject a dependency using providers array each component
+      gets a new instance of the dependency.
+    </li>
+    <li>
+      <strong>Hierarcical Depenedency injection</strong> : When we inject a
+      dependency a single instance of that dependency will be injected for the
+      component and all its child components.
+    </li>
+    <li>
+      To achieve this we need to provide the dependency only into the parent
+      component and not in the child component.
+    </li>
+    <li>
+      <strong>Dependency Override</strong> : If we are providing a dependency on
+      parent component and we are providing the same dependency on the child
+      component then in that case the child will over ride the dependency it got
+      through hierarchical injection of its parent.
+    </li>
+    <li>
+      When we provide a dependency to root component then a single instance of
+      the dependency will be injected throught the app.
+    </li>
+    <li>
+      Example:
+      <div>Count from child is {{ demo.count }}</div>
+      <button (click)="incrementCount()">Increment Count</button>
+      <app-dependency-child></app-dependency-child>
+    </li>
+  </ul>
+</div>
+<div class="wrapper">
+  <h3>Hierarcical Injection</h3>
+  <ul>
+    <li>
+      When we provide a service on multiple components each component will get
+      its own instance.
+    </li>
+    <li>
+      Using <strong>hierarchical injection</strong> we can provide the same
+      instance to a component class and all its child components.
+    </li>
+  </ul>
+</div>
+<div class="wrapper">
+  <h3>Service</h3>
+  <ul>
+    <li>
+      Services are generally used whenever we require some common functionality
+      acorss common functionality accross different modules or components.
+    </li>
+    <li>It helps us achieve DRY principle (Don't repete yourself).</li>
+    <li>
+      Components should only be responsible to handle presentation logic. Its
+      always a good practice to write the business logic in service class.
+    </li>
+    <li>It helps us to communicate between two non related components.</li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h2>Injection Token</h2>
+  <ul>
+    <li>
+      Whenever we add a service in a provider's array behind the scene each
+      service will be converted into an object which has properties :
+      <strong>provide</strong>
+      and <strong>useClass</strong>.
+    </li>
+    <li>
+      <strong>provide</strong>:
+      <ul>
+        <li>
+          property registers a unique identifier for registering the class which
+          is also known as token.
+        </li>
+        <li>
+          This token acts as a key. The dependency injection system need this
+          key to locate the provider in the provider's array.
+        </li>
+        <li>This key can be a string, type or injection token.</li>
+        <li>
+          If we are explicitly definig the provide with string we have to use
+          {{ "@Inject(token-name) demoService:any" }} in the constructor to
+          inject the service.
+        </li>
+        <li>
+          Using a string as an injection token can be prone to errors so we
+          should use injectionToken class to create injection token and use it
+          instead.
+          <div>
+            Syntax :
+            <strong
+              >export const CHILD_TOKEN = new InjectionToken<{{
+                "ServieName"
+              }}>('Service Description');</strong
+            >
+          </div>
+        </li>
+        <li><button (click)="callLogger()">Call Logger</button></li>
+      </ul>
+    </li>
+    <li>
+      <strong>useClass</strong> it specifies which class needs to be
+      instantiated against the token.
+    </li>
+    <li>
+      Example : providers:[DemoServies] -> providers:[{{
+        "{ provide : DemoService , useClass : DemoService }"
+      }}]
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h2>Example</h2>
+  <button (click)="callDemoMethod()">Call demo method</button>
+</div>

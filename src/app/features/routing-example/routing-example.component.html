@@ -1,0 +1,156 @@
+<h2>Routing</h2>
+<div class="wrapper">
+  <ul>
+    <li>
+      In angular routing helps us to navigate from one part of the application
+      to another part.
+    </li>
+    <li>
+      To use routing we have build in router module
+      <strong>@angular/router</strong>
+    </li>
+    <li>
+      To achieve routing we need to create a routes array in app.module.ts and
+      in the imports we need to add
+      <strong>RouterModule.forRoot(routes)</strong>
+    </li>
+    <li>
+      Another way is to create a routing module and performing all the above
+      actions their and then import it to the main module.
+    </li>
+    <li>
+      To make a not found page we need to specify the path as ** which means any
+      and we need to place it in the button because if we place it anywhere
+      above then at any point ** will get matched and not found page will appear
+      even if we have the path.
+    </li>
+    <li>
+      We can navigate to different pages using href but here the each time href
+      executes the page reloads which means a new request will be sent to the
+      serve and it will return a new page.
+    </li>
+    <li>
+      We can use routerLink in place of href to navigate to different pages
+      through html
+    </li>
+    <li>
+      <strong>Router Link </strong> is a directive that binds the HTML element
+      to a Route. We can also pass additional parameters using it.
+    </li>
+    <li>
+      <strong>Router Link Active </strong> is a directive for adding or removing
+      classes to a HTML element that is bound to that RouterLink Using this we
+      can toggle css classes for active links based on current router state.It
+      is used to highlight which route is currently active.
+    </li>
+    <li>
+      There are two types of route paths
+      <ul>
+        <li>
+          <strong>Absolute</strong>: In this case the path is directly appended
+          to the root url. If we use / infront of any router link then its a
+          absolute path.
+        </li>
+        <li>
+          <strong>Relative </strong>: In this the path is appended to the
+          currently active route, but only if the route is present inside the
+          currently active route. Here we donot use / at the starting.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Route Parameters </strong> are the dynamic part of routes whose
+      value changes.
+    </li>
+    <li>Example : <strong>/route/:id</strong></li>
+    <li>
+      We can access the params from
+      <strong>ActivateRoutes.snapshot.params</strong> or
+      <strong>ActivateRoutes.snapshot.paramMap</strong> or
+      <strong>ActivateRoutes.paramas observable</strong>
+    </li>
+    <li><strong>Child Route</strong> is a route inside a route.</li>
+    <li>
+      We can create a child route by simply adding a children array inside the
+      any route object of Routes array and remeber don't give the component name
+      there instead add component names to child routes only.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Route Guards</h3>
+  <ul>
+    <li>
+      They add validation before navigating to a route or navigating away from a
+      route.
+    </li>
+    <li>
+      There are five types of route guards in angular :
+      <ul>
+        <li>
+          <strong>CanActivate</strong> : It is used to allow or restrict a user
+          from navigating a route.
+          <ul>
+            <li>
+              To implement this we need to create a auth guard service and
+              implement CanActivate Interface
+            </li>
+            <li>
+              We have to call canActivate method which must return
+              <strong
+                >boolean or {{ "Observable<'boolean'> " }} or
+                {{ "Promise<'boolean'>" }}</strong
+              >
+            </li>
+            <li>
+              Assign the canActivate property to the route in the routes array
+              in array format.
+            </li>
+            <li>
+              In
+              <strong> Angular 15 + </strong> we can add a CanActivate in the
+              routes array inplace of placeing the route gurad and the function
+              must return the required types.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>CanActivateChild</strong> : It is used to when we have to
+          restrict the user to visit the parent route but not the child routes.
+          To achieve this we can use canActivateChild in the routes array and we
+          need to implement the canActivateChild interface in the route guard.
+        </li>
+        <li>
+          <strong>CanDeactivate</strong> : It is used to allow or restricting a
+          user from navigating away from a route. Example : Your changes might
+          not be saved if you go away.
+        </li>
+        <li>
+          <strong>Resolve</strong> : These guards delay the activation ofthe
+          route untill some tasks are completed. Example : If weneed to fetch
+          something from backend before we navigate to a route.
+        </li>
+        <li>
+          <strong>canLoad</strong> : They prevents the loading of lazy loaded
+          modules. Example : when we don't want unauthorized used to even see
+          the source code of the module.
+        </li>
+      </ul>
+      <div
+        [ngStyle]="{
+          width: '100%',
+          margin: '20px 10px',
+          display: 'flex',
+          'justify-content': 'center'
+        }"
+      >
+        <img
+          src="./assets/images/route-guard.jpg"
+          height="300px"
+          width="800px"
+        />
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,175 @@
+<div class="wrapper">
+  <h2>Template Reference Variable</h2>
+
+  <ul>
+    <li>
+      It is a variable which stores the reference to a DOM element, component or
+      a directive on which it is used.
+    </li>
+    <li>We can create it by prefixing a variable with <strong>#</strong>.</li>
+    <li>
+      Example : &lt;input <strong>#myInput</strong> /&gt;. Here #myInput is the
+      template reference variable.
+    </li>
+  </ul>
+
+  <h4>On element</h4>
+  <div>
+    <input #myInput /> <button (click)="onClick(myInput)">Show text</button>
+  </div>
+  <strong>{{ inputRes }}</strong>
+
+  <h4>On Component</h4>
+  <app-template-reference-child #templateChild></app-template-reference-child>
+  Output from parent : <strong>{{ templateChild.childValue }}</strong>
+</div>
+<div class="wrapper">
+  <h2>@ViewChild</h2>
+  <ul>
+    <li>
+      View Child decorator is used to query and get reference of a DOM element
+      in the component.
+    </li>
+    <li>
+      If there are multiple decorators with same template reference variable, it
+      will point to the first matching reference variable.
+    </li>
+    <li>
+      Syntax :
+      <strong>
+        @ViewChild('templateChild',{{ "{static:true}" }})
+        {{ "childVariable!: any;" }}.
+      </strong>
+      Here templateChild is the template reference variable.
+    </li>
+    <li>
+      Static Determines when the query has to be resolved.
+      <ul>
+        <li>
+          <strong>true : </strong>When the view is initialised(after the first
+          change detection cycle) for the first time.
+        </li>
+        <li>
+          <strong>false : </strong>Resolved after every change detection cycle.
+        </li>
+      </ul>
+    </li>
+    <li>We can use it with any element, component or directive.</li>
+  </ul>
+
+  <h4>Referencing a component</h4>
+  <div>
+    <button (click)="resetChildValue()">reset childValue from parent</button>
+  </div>
+  <div>
+    Displaying child value using <strong>@ViewChild</strong> :
+    <span *ngIf="childVariable?.childValue">{{
+      childVariable.childValue
+    }}</span>
+  </div>
+
+  <h4>Referencing an element</h4>
+  <input #templateInput />
+  <button (click)="changeTemplateInputValue()">
+    Change template input text
+  </button>
+</div>
+<div class="wrapper">
+  <h2>@ViewChildren</h2>
+  <ul>
+    <li>
+      It is same as @ViewChild but <strong>@ViewChild</strong> only returns the
+      first element which matches the reference. Where as
+      <strong>@ViewChildren</strong> returns a list of all the elements that
+      matches the reference.
+    </li>
+    <li>It will return a <strong>QueryList.</strong></li>
+  </ul>
+
+  <app-template-reference-child
+    #templateReference
+  ></app-template-reference-child>
+  <input #templateReference />
+</div>
+<div class="wrapper">
+  <h2>Ng Template</h2>
+  <ul>
+    <li>ng-template is an Angular element which wraps an HTML snippet.</li>
+    <li>The snippet can be resued anywhere in the DOM.</li>
+  </ul>
+  <ng-template #ngTemplateExample>
+    <strong>Inside ng template</strong>
+  </ng-template>
+
+  <div>Calling ng template for 1st time.</div>
+  <div *ngTemplateOutlet="ngTemplateExample"></div>
+
+  <div>Calling ng template for 2nd time.</div>
+  <div *ngTemplateOutlet="ngTemplateExample"></div>
+</div>
+
+<div class="wrapper">
+  <h2>Ng Container</h2>
+  <ul>
+    <li>
+      It is a special Angular element that can hold structural directives
+      without adding new elements to the DOM.
+    </li>
+  </ul>
+  <div *ngIf="toggle; else toggleOff">Toggle is on.</div>
+  <ng-template #toggleOff> Toggle is off. </ng-template>
+
+  <button (click)="changeToggle()">Toggle</button>
+</div>
+
+<div class="wrapper">
+  <h2>Content Projection</h2>
+  <ul>
+    <li>
+      <strong>&lt; ng-content > </strong> is a placeholder element in Angular
+      that is used to project content into a component from the outside.
+    </li>
+    <li>
+      When you use it within a component's template, any content that we include
+      between the opening and closing tags of the component selector will be
+      inserted into the placeholder.
+    </li>
+    <li>
+      If we have multiple
+      <strong>ng-content</strong> in a same html file then the content passed
+      will be replaced by the last ng-content.
+    </li>
+    <li>
+      It we want to project different content in different ng-contents in that
+      case we can use the select attribute.
+    </li>
+  </ul>
+  <app-template-reference-child>
+    <div class="first">Displaying using ng-content 1st.</div>
+    <div id="second">Displaying using ng-content 2nd.</div>
+  </app-template-reference-child>
+</div>
+
+<div class="wrapper">
+  <h2>@ContentChild</h2>
+  <ul>
+    <li>
+      It is a decorator used to access the reference of a DOM element or a
+      component or a directive from the projected content into child component
+      class.
+    </li>
+    <li>
+      We need to pass a template reference varibale with the element in parent
+      component.
+    </li>
+    <li>
+      We can use that template reference variable to reference the content
+      element in child component.
+    </li>
+  </ul>
+
+  <app-template-reference-child>
+    <div #projectedContent class="first">Displaying using ng-content 1st.</div>
+    <div id="second">Displaying using ng-content 2nd.</div>
+  </app-template-reference-child>
+</div>

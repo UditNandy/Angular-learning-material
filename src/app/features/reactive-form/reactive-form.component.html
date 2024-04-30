@@ -1,0 +1,157 @@
+<h3>Reactive Forms</h3>
+<div class="wrapper">
+  <ul>
+    <li>Here the form is controlled mostly from ts file.</li>
+    <li>Should be implemented when we need to make a complex form.</li>
+    <li>Good for dynamic forms.</li>
+    <li><strong>FormGroup</strong> is a collection of form controls.</li>
+    <li>
+      <strong>FormControl</strong> are classes that helps us to create and
+      manage form elements.
+    </li>
+    <li>
+      <strong>Note </strong>: We can create a form using single formcontrol as
+      well without any form group.
+    </li>
+    <li>
+      <strong>Note </strong>: FormGroup and FormArrays are also a type of form
+      control.
+    </li>
+    <li>
+      <strong>FormArray </strong>:It is a collection of form controls, form
+      groups, form arrays or all.
+    </li>
+    <li>
+      FormGroup stores the form controls in key value pairs whereas FormArray
+      stores the form controls as an element of array.
+    </li>
+    <li>
+      <strong
+        >Status changes emits the current status of form like invalid, pending,
+        valid.</strong
+      >
+    </li>
+  </ul>
+</div>
+<div class="wrapper">
+  <h3>Custom Validators</h3>
+  <div><strong>Steps to create :</strong></div>
+  <div>
+    <ul>
+      <li>Create a method and take formControl as a parameter.</li>
+      <li>
+        While creating a custom sync validator we can reutrn an object in case
+        of error and null in case of no error.
+      </li>
+      <li>
+        In case of async custom validator we can return a promise or an
+        observable in case of error and null in case of no error.
+      </li>
+      <li>
+        <strong>Note</strong> : In case of async validator till the time
+        response is not arrived the validor will not throw any error and the
+        form will be valid so in this time a user can submit the form. To avoid
+        this we can use form.invalid and form.pending to disable the submit
+        button.
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="wrapper">
+  <h3>Examples</h3>
+
+  <div>
+    <div>Single Form Control Example</div>
+    <div><input [formControl]="demoControl" />{{ demoControl.value }}</div>
+  </div>
+
+  <h4>Normal Form</h4>
+  <div>
+    {{ reactiveFromGroup.errors | json }}
+    <form [formGroup]="reactiveFromGroup">
+      <input appHighlighter formControlName="name" placeholder="Enter name" />
+      <input formControlName="userName" placeholder="Enter username" />
+      <input formControlName="age" placeholder="Enter age" />
+      <button (click)="setName()">Set name</button>
+      <button (click)="reset()">Reset</button>
+      <button (click)="addControlInArray()">Add hobby</button>
+
+      <div formArrayName="hobbies">
+        <div *ngFor="let hobby of hobbies.controls; let i = index">
+          {{ i + 1 }}.<input [formControlName]="i" placeholder="Enter hobby" />
+          <button (click)="removeControl(i)">Remove</button>
+        </div>
+      </div>
+      <button
+        (click)="onReactiveFormSubmit()"
+        type="submit"
+        [disabled]="
+          reactiveFromGroup.status === 'PENDING' ||
+          reactiveFromGroup.status === 'INVALID'
+        "
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div>
+    <h4>Form Array with Form Groups</h4>
+    <div>
+      <form [formGroup]="multipleStudentsForm">
+        <div formArrayName="students">
+          <div
+            *ngFor="let student of multipleStudents.controls; let index = index"
+            [formGroupName]="index"
+          >
+            <input formControlName="name" form placeholder="Enter name" />
+            <input formControlName="userName" placeholder="Enter username" />
+            <input formControlName="age" placeholder="Enter age" />
+            <button (click)="addNewHobbtInMultiple(index)">Add hobby</button>
+            <button (click)="removeStudent(index)">Remove this student</button>
+
+            <div formArrayName="hobbies">
+              <div
+                *ngFor="
+                  let hobby of getHobbiesForMultiple(index).controls;
+                  let i = index
+                "
+              >
+                {{ i + 1 }}.<input
+                  [formControlName]="i"
+                  placeholder="Enter hobby"
+                />
+                <button (click)="removeHobbyFromMultiple(index, i)">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+          <div><button (click)="addNewStudent()">Add new Student</button></div>
+        </div>
+        <button
+          (click)="onMultipleStudentsSubmit()"
+          type="submit"
+          [disabled]="
+            multipleStudentsForm.status === 'PENDING' ||
+            multipleStudentsForm.status === 'INVALID'
+          "
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <h4>Nested Form Group</h4>
+    <form [formGroup]="nestedFormGroup">
+      <div formGroupName="name">
+        <input formControlName="fname" placeholder="Enter first name" />
+        <input formControlName="lname" placeholder="Enter last name" />
+      </div>
+      <input formControlName="age" placeholder="Enter age" />
+    </form>
+    {{ nestedFormGroup.value | json }}
+  </div>
+</div>

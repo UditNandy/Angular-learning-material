@@ -1,0 +1,117 @@
+<h3>Template From</h3>
+<div class="wrapper">
+  <ul>
+    <li>
+      When we submit a normal form in HTML, the whole page gets reload by making
+      a HTTP request to the server.
+    </li>
+    <li>
+      As we are creating a SPA, we can say that it will restart the entire
+      Angular app.
+    </li>
+    <li>To avoid this we need Angular to stop this default behaviour.</li>
+    <li>This can be achieved by Template or reactive forms.</li>
+  </ul>
+</div>
+<div class="wrapper">
+  <ul>
+    <li>To work with forms in Angular we need <strong>FormsModule.</strong></li>
+    <li>
+      We can use <strong>ngSubmit</strong> in place of onSubmit to submit the
+      form.
+    </li>
+    <li>
+      We need to assign a template reference to the form and template reference
+      should be ngForm.
+      <div>Syntax : <strong>#myForm = "ngForm"</strong></div>
+    </li>
+    <li>
+      <strong>ngModel</strong> directive will tell angular that if it is used if
+      input element inside a template form then that input element is a control.
+    </li>
+    <li>
+      We can use dirty property of a form for CanDeactive where we can restrict
+      the user from navigating away from route if the form is
+      <strong>dirty</strong> and not submitted.
+    </li>
+    <li>
+      <strong>Note</strong> : Incase of radio buttons always keep the name same
+      for different options.
+    </li>
+    <li>
+      To check if a form is valid or not we can use <strong>form.vaild</strong>.
+    </li>
+    <li>
+      A <strong>form group</strong> is a collection of form controls. In
+      template form we can achieve it using <strong>ngModelGroup</strong>.
+    </li>
+    <li>
+      To access the properties of a form group we need to store that form group
+      in a templete reference variable.
+      <div>Syntax : <strong>#address="ngModelGroup"</strong></div>
+    </li>
+    <li>
+      If we want to add some value from ts then we can make use of setValue but
+      we have to pass all the controls here.
+    </li>
+    <li>
+      If we need to pass only the control whose value we want to set we can make
+      use of patchValue.
+    </li>
+  </ul>
+
+  <h3>Advantages</h3>
+  <ul>
+    <li>Less coading is required in class file.</li>
+    <li>Easy to understand and better for small forms.</li>
+  </ul>
+  <h3>Disadvantages</h3>
+  <ul>
+    <li>Adding controls dynamically durring runtime is a challange.</li>
+    <li>Not suitable for complex forms.</li>
+  </ul>
+</div>
+<div class="wrapper">
+  <h3>Example</h3>
+  <form (ngSubmit)="onTemplateFormSubmit(myForm)" #myForm="ngForm">
+    <div>
+      <input
+        [(ngModel)]="templateFormValue.name"
+        name="name"
+        placeholder="Enter name"
+        required
+      />
+      <button (click)="setName(myForm)">Set Name</button>
+    </div>
+    <div>
+      <input
+        [(ngModel)]="templateFormValue.username"
+        name="username"
+        placeholder="Enter username"
+      />
+    </div>
+    <div>
+      <input
+        [(ngModel)]="templateFormValue.age"
+        name="age"
+        placeholder="Enter age"
+      />
+    </div>
+    <div>
+      Gender : <input name="gender" type="radio" value="male" ngModel /> male
+      <input name="gender" type="radio" value="female" ngModel /> female
+    </div>
+    <div ngModelGroup="dob" #address="ngModelGroup">
+      <div>
+        <strong> Date of Birth : </strong>
+        <div>
+          <label>Day : </label><input name="day" ngModel />&nbsp;
+          <label>Month : </label><input name="month" ngModel />&nbsp;
+          <label>Year : </label><input name="year" ngModel />
+        </div>
+      </div>
+    </div>
+    <button type="submit">Submit</button
+    ><button (click)="reset(myForm)">Reset</button>
+  </form>
+</div>
