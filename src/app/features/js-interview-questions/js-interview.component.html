@@ -133,7 +133,36 @@
     <li><strong>Delete operator</strong></li>
     <li><strong>window vs document</strong></li>
     <li><strong>undeclared vs undefined</strong></li>
-    <li><strong>event flow(go through it)</strong></li>
+    <li>
+      <strong>event flow(go through it)</strong>:
+      <div>
+        Event flow is the order in which event is received on the web page There
+        are two types of event flows:
+        <ul>
+          <li>
+            <strong>Event Bubling</strong> : Here the event propagated from the
+            inner most element to the topmost element. Like if we trigger a
+            click event at the child then the click event of the parent will
+            also get triggered. Example:
+            <div (click)="divClicked()">
+              <button (click)="buttonClicked($event)">Event Bubling</button>
+            </div>
+            To prevent event bubling we can use stopPropagation method.
+          </li>
+          <li>
+            <strong>Event Capturing</strong> : Here the event will first
+            captured in the parent and then it will be captured in all its
+            children. It is not present by default we have to enable it
+            explicitly . Example :
+            <div id="captureDiv" (click.capture)="divCapture()">
+              <button id="captureButton" (click.capture)="buttonCapture()">
+                Event Capturing
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
     <li><strong>What is the use of preventDefault method</strong></li>
     <li><strong>same-origin policy</strong> :</li>
     <li><strong>JavaScript a compiled or interpreted language</strong></li>
@@ -149,21 +178,44 @@
     <li><strong>for-in vs for-of loop</strong></li>
     <li><strong>Is the !-- notation represents a special operator</strong></li>
     <li><strong>polyfill</strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
-    <li><strong></strong></li>
+    <li><strong>Rest and Spread operator</strong></li>
+    <li><strong>Function currying</strong></li>
+    <li><strong>Tree Shaking</strong></li>
+    <li>
+      <strong>Function Currying</strong> : Function currying is a technique in
+      functional programming where a function with multiple arguments is
+      converted into a sequence of nested functions, each taking a single
+      argument.
+      <div>
+        Example :
+        <button (click)="getUser(userInfo)('name')">Function Currying</button>
+      </div>
+    </li>
+    <li>
+      <strong>freeze method</strong> : It prevent an object from being modified.
+    </li>
+    <li><strong>anonymous function </strong></li>
+    <li>
+      <strong>event loop, call stack , callback queue(event queue)</strong>
+    </li>
+    <li>
+      <strong>Features of ES6</strong> :
+      <ul>
+        <li>Support for constants or immutable variables</li>
+        <li>Block-scope support for variables, constants and functions</li>
+        <li>Arrow functions</li>
+        <li>Default parameters</li>
+        <li>Rest and Spread Parameters</li>
+        <li>Template Literals (Template String)</li>
+        <li>Multi-line Strings</li>
+        <li>Destructuring Assignment</li>
+        <li>Enhanced Object Literals</li>
+        <li>Promises</li>
+        <li>Classes</li>
+        <li>Modules</li>
+      </ul>
+    </li>
+    <li><strong>Can I redeclare let and const variables</strong> : No</li>
+    <li><strong>Shallow and Deep copy</strong></li>
   </ul>
 </div>

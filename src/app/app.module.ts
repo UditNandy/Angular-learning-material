@@ -28,6 +28,7 @@ import { ModuleExampleComponent } from './features/module-example/module-example
 import { DemoService } from './services/demo.service';
 import { DependencyInjectionChild } from './features/dependency-injection/dependency-injection-child/depenedency-injection-child.component';
 import { ChildService } from './services/child.service';
+import { CommonModule } from '@angular/common';
 
 export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
 
@@ -63,6 +64,7 @@ export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [{ provide: CHILD_TOKEN, useClass: ChildService }],
   bootstrap: [AppComponent],
