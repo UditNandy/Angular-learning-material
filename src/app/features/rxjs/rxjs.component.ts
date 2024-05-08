@@ -14,9 +14,11 @@ import {
   last,
   map,
   mergeMap,
+  observeOn,
   of,
   reduce,
   scan,
+  scheduled,
   switchMap,
   take,
   throwError,
@@ -43,7 +45,7 @@ export class RxjsComponent implements OnInit {
     // this.callCombineLatest();
     // this.callForkJoin();
     // this.callWithLatestFrom();
-    // this.callMergeMap();
+    this.callMergeMap();
     // this.callMergeMapForSeriesApi();
     // this.callSwitchMap();
     // this.callConcatMap();
@@ -202,7 +204,7 @@ export class RxjsComponent implements OnInit {
     source$
       .pipe(
         mergeMap((value) => {
-          return of(1, 2, 3, asapScheduler).pipe(
+          return scheduled([1, 2, 3], asapScheduler).pipe(
             map((innerValue) => {
               return `${value}${innerValue}`;
             })

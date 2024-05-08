@@ -66,10 +66,6 @@ export class ReactiveFormComponent implements OnInit {
   }
   setName = () => {
     this.reactiveFromGroup.patchValue({ name: 'Udit' });
-    // this.reactiveFromGroup.setValue({
-    //   ...this.reactiveFromGroup.value,
-    //   name: 'Udit',
-    // });
   };
   reset = () => {
     this.reactiveFromGroup.reset();

@@ -1,27 +1,25 @@
-.wrapper1{
-    padding: 20px;
+.wrapper1 {
+  padding: 20px;
 }
 
-.topics{
-    display: flex;
-    list-style-type: none;
-    gap: 10px;
-    margin-bottom: 40px;
+.topics {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  list-style-type: none;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 
-
-.topic{
-    background-color: rgb(213, 216, 216);
-    border-radius: 10px;
-    padding: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+.topic {
+  background-color: rgb(213, 216, 216);
+  border-radius: 10px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.active{
-    background-color: rgb(90, 89, 89);
-    color: white
+.active {
+  background-color: rgb(90, 89, 89);
+  color: white;
 }
-
-

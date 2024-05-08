@@ -1,0 +1,150 @@
+<h2>Angular Fundamentals</h2>
+
+<div class="wrapper">
+  <h4>Angular files and folders</h4>
+  <ul>
+    <li>
+      <strong>node_modules</strong> :
+      <ul>
+        <li>
+          All the 3rd party libraries gets stored here on which our Angular app
+          might depend on.
+        </li>
+        <li>
+          All the 3rd party libraries we download from npm gets stored in this
+          node module folder.
+        </li>
+        <li>
+          This is purely for development process and we don't deploy this folder
+          in production server or checkin this folder in the git repo.
+        </li>
+        <li></li>
+      </ul>
+    </li>
+    <li>
+      <strong>package.json</strong> :
+      <ul>
+        <li>
+          This is a standard configuration file which every node project has.
+        </li>
+        <li>
+          It has the meta data of the project like name, version, scripts,
+          dependencis, devDependencies.
+        </li>
+        <li>
+          In dependencies we will have the list of all packages on which the
+          project is directly dependend, devDependencies is the list of all
+          packages which are required in the time of development of the project.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>.editorconfig</strong> : It is file which is used to set rules
+      related to coding standards. In real world project many different people
+      work in a same project and all may have different approach of writing
+      code.
+    </li>
+    <li>
+      <strong>.gitignore</strong> : here we can specify the files and folders
+      that we want to ignore.
+    </li>
+    <li>
+      <strong>angular.json</strong>: It contains akk the configuration of our
+      angular project, like what are the stylesheets the app is going to use and
+      where to find it, the main entry point, etc.
+    </li>
+    <li>
+      <strong>package.lock.json</strong>:
+      <ul>
+        <li>
+          It keeps a record of exact version of every installed dependency,
+          including their sub dependencies and versions.
+        </li>
+        <li>
+          It makes sure that the same set of dependencies are present accross
+          different environment.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>tsconfig.json</strong> : It basically contains a bunch of settings
+      for our typescript compiler. Typescript compiler is goinf to loot at these
+      settings and based on these settings the compiler will change the
+      typescript file into javascript file.
+    </li>
+    <li>
+      <strong>src</strong> : Here we contains the source code of our
+      application.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h4>Bootstrapping angular app works</h4>
+  <ul>
+    <li>Bootstrapping is the process of loading our angular app.</li>
+    <li><strong>index.html</strong> is the first page in angular app.</li>
+    <li>
+      The index.html file doesnot have any javascript file attached to it but we
+      can see an <strong>app-root</strong> tag in the body.
+    </li>
+    <li>
+      <strong>app-root</strong>:
+      <ul>
+        <li>
+          To run our angular app we need to type a command
+          <strong>ng-serve</strong>. This commnad actually builds our app but
+          doesn't save it in the disk rather it saves it in the memory. This
+          command also watches our project and if we make any changes then it
+          will recompile and update the build file.
+        </li>
+        <li>
+          ng-serve bundles the application and injects it to the index.html
+          file.
+        </li>
+        <li>
+          To view this build we need to run an angular cli command called ng
+          build.
+        </li>
+        <li>
+          After building the angular app we will get a dist folder and inside
+          the folder we will have a index.html file too there we will see that
+          inside the body tag there is app-root and a new script tag is
+          imported.
+        </li>
+        <li>In angular webpack bundles the angular application.</li>
+        <li>
+          Once the angular cli has these bundles then angular cli injects this
+          bundles in the index.html file.
+        </li>
+      </ul>
+    </li>
+    <li>
+      So by the time the index.html file is loaded, Angular core modules and
+      thirdparty modules are also loaded.
+    </li>
+    <li>Now agular needs to locate the main entry point of the application.</li>
+    <li>
+      The angular cli searches for the entry point in angular.json where in main
+      the entry point is mentioned.
+    </li>
+    <li>
+      In the main.ts file we need to import
+      <strong>platformBrowserDynamic</strong> module which is responsible for
+      loading the angular app in the browser.
+    </li>
+    <li>
+      Angular app can be bootstrapped in many ways and in many platforms like
+      mobile devices with <strong>ionic or native scripts</strong>
+    </li>
+    <li>In the main.ts we have to bootstrap the AppModule class.</li>
+    <li>
+      Inside app module we have a bootstrap array in which we have to specify
+      some components.
+    </li>
+    <li>
+      The components specified in the AppModule bootstrap array will be loaded
+      as soon as the AppModule loads.
+    </li>
+  </ul>
+</div>

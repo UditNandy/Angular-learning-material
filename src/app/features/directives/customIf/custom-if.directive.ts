@@ -9,8 +9,10 @@ export class CustomIfDirective {
     private view: ViewContainerRef
   ) {}
 
-  @Input() set customIf(condition: boolean) {
-    if (condition) {
+  @Input() customIf!: boolean;
+
+  ngOnChanges() {
+    if (this.customIf) {
       this.view.createEmbeddedView(this.template);
     } else {
       this.view.clear();

@@ -15,8 +15,11 @@ import { CssPracticeComponent } from './features/css-practice/css-practice.compo
 import { ModuleExampleComponent } from './features/module-example/module-example.component';
 import { AuthGuard } from './services/auth.guard';
 import { JsInterviewComponent } from './features/js-interview-questions/js-interview.component';
+import { AngularFundamentalsComponent } from './features/angular-fundamentals/angular-fundamentals.component';
+import { AngularInterviewQuestionsComponent } from './features/angular-interview-questions/angular-interview-questions.component';
 
 const routes: Routes = [
+  { path: 'angular-fundamentals', component: AngularFundamentalsComponent },
   { path: 'rxjs', component: RxjsComponent },
   { path: 'reactiveForm', component: ReactiveFormComponent },
   { path: 'templateForm', component: TemplateFormComponent },
@@ -51,6 +54,10 @@ const routes: Routes = [
   {
     path: 'js-interview',
     component: JsInterviewComponent,
+  },
+  {
+    path: 'angular-interview-questions',
+    component: AngularInterviewQuestionsComponent,
   },
   { path: '**', component: NotfoundComponent },
 ];

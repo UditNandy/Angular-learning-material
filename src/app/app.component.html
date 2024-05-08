@@ -2,6 +2,14 @@
   <div class="topics">
     <div
       class="topic"
+      routerLink="/angular-fundamentals"
+      [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Angular Fundamentals
+    </div>
+    <div
+      class="topic"
       routerLink="/rxjs"
       [routerLinkActive]="'active'"
       [routerLinkActiveOptions]="{ exact: true }"
@@ -103,6 +111,14 @@
       [routerLinkActiveOptions]="{ exact: true }"
     >
       JS interview
+    </div>
+    <div
+      class="topic"
+      routerLink="/angular-interview-questions"
+      [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Angular Interview Questions
     </div>
   </div>
 
