@@ -17,6 +17,7 @@ import { AuthGuard } from './services/auth.guard';
 import { JsInterviewComponent } from './features/js-interview-questions/js-interview.component';
 import { AngularFundamentalsComponent } from './features/angular-fundamentals/angular-fundamentals.component';
 import { AngularInterviewQuestionsComponent } from './features/angular-interview-questions/angular-interview-questions.component';
+import { CompilationProcessComponent } from './features/compilation-process/compilation-process.component';
 
 const routes: Routes = [
   { path: 'angular-fundamentals', component: AngularFundamentalsComponent },
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'module',
     component: ModuleExampleComponent,
+  },
+  {
+    path: 'compilation-process',
+    component: CompilationProcessComponent,
   },
   {
     path: 'js-interview',

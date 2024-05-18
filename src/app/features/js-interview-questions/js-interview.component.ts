@@ -15,7 +15,6 @@ export class JsInterviewComponent {
     };
 
     map.set(a, 'hihi');
-
     let obj: any = new Object();
     obj['hello'] = 'hello';
     obj['hi'] = 'hi';

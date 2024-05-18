@@ -1,0 +1,75 @@
+<h2>Compilation Process</h2>
+<div class="wrapper">
+  <ul>
+    <li>
+      <strong>High level language</strong> : The code we write using programing
+      languages like c, java, javascript. These are human readable languages.
+    </li>
+    <li>
+      <strong>Machine Code</strong> : The high level programs are not understood
+      by computer's so they are converted into 0's and 1's which is known as
+      machine code.
+    </li>
+    <li>
+      Conversion of high level language to machine code can be done by
+      compilation or interpretation.
+    </li>
+    <li>
+      <strong>Compilation</strong> : Here the entire source code is converted to
+      machine code at once, which is then written into a protable file (like
+      binary file) which can be executed by any operating system or browser at
+      any time.
+    </li>
+    <li>
+      In compilation steps involved are :
+      <ul>
+        <li>
+          Conversion of source code(high level language) to machine code and
+          writing it in a file.
+        </li>
+        <li>Execution of machine code to run the program.</li>
+        <li>Execution can happen any time way after its compilation.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Interpretation</strong> : Here we have an interpreter which goes
+      through the code line by line and executes it durring run time.
+    </li>
+    <li>Interpreted languages are much slower then compiled languages.</li>
+    <li>
+      Modern javascript uses a combination of compilation and interpretation.
+    </li>
+    <li>
+      <strong>JIT(Just in time compilation)</strong> :
+      <ul>
+        <li>
+          Here the javascript code is converted to machine code and gets
+          executed right away.
+        </li>
+        <li>
+          Here there is no portable file but the execution happens immediatly
+          after the compilation.
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Javascript compilation</h3>
+  <ul>
+    <li>
+      <strong>Parsing</strong> :As soon as we run a javascript program the
+      javascript engine parse it line by line and checks for syntax errors.
+    </li>
+    <li>
+      If any syntax error is found then the engine throws an error or else if
+      everything is right the parser produces a data structure known as Abstract
+      Syntax Tree (AST).
+    </li>
+    <li>
+      <strong>AST</strong>; This tree is used for generating the machine code.
+    </li>
+    <li>The machine code generated gets executed right away.</li>
+  </ul>
+</div>
