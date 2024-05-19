@@ -18,6 +18,7 @@ import { JsInterviewComponent } from './features/js-interview-questions/js-inter
 import { AngularFundamentalsComponent } from './features/angular-fundamentals/angular-fundamentals.component';
 import { AngularInterviewQuestionsComponent } from './features/angular-interview-questions/angular-interview-questions.component';
 import { CompilationProcessComponent } from './features/compilation-process/compilation-process.component';
+import { AngularElementsComponent } from './features/angular-elements/angular-elements.component';
 
 const routes: Routes = [
   { path: 'angular-fundamentals', component: AngularFundamentalsComponent },
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: 'compilation-process',
     component: CompilationProcessComponent,
+  },
+  {
+    path: 'angular-elements',
+    component: AngularElementsComponent,
   },
   {
     path: 'js-interview',

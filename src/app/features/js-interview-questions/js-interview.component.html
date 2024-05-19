@@ -99,6 +99,34 @@
       </ul>
     </li>
     <li><strong>Scopes</strong>: block, function, lexical,</li>
+    <li>
+      <strong>Web Worker</strong> :
+      <ul>
+        <li>
+          Javascript is single threaded language and if some heavy computatoinal
+          task comes then the main thread is blocked to handle this situation
+          web workers come into picture.
+        </li>
+        <li>
+          Web worker behaves like another thread that runs paralley and we can
+          transfer the heavy task there
+        </li>
+        <li>
+          To use web worker we need to create a instance of Worker and pass a
+          file path say "worker.js"
+        </li>
+        <li>
+          We will send message to worker.js from our main js file using
+          worker.postMessage('message') and in that worker.js we have to assign
+          a function to onmessage variable which will actually react to messages
+          send by the main file.
+        </li>
+        <li>
+          Once the task is completed we can postMessage from worker.js and have
+          to add a worker.onmessage on the main js file to recive the event.
+        </li>
+      </ul>
+    </li>
     <li><strong>Service Worker and web worker</strong></li>
     <li>
       <strong>Index DB (go in detail)</strong> : IndexedDB is a low-level API

@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <h2>Angular Elements</h2>
+  <ul>
+    <li>
+      It is a feature of angular which helps in converting the normal angular
+      component into a native web component.
+    </li>
+    <li>
+      <strong>Web Components</strong> : They are basically custom HTML elements
+      which are part of DOM Apis which can be used anywhere.
+    </li>
+  </ul>
+  <h4>Steps for creating a custom element in angular</h4>
+  <ul>
+    <li>Complete the application first.</li>
+    <li>Install angular-elements.</li>
+    <li>Inject an injector using dependency injection.</li>
+    <li>
+      Add ngDoBpptstrap method in app.module.ts and inside it we need to create
+      a custom element by using createCustomElement method from
+      @angular/elements.
+    </li>
+    <li>
+      Pass AppComponent as the first parameter to createCustomElement and add an
+      injector as 2nd parameter and assign the result to a variable.
+    </li>
+    <li>Now we need to define our selector for the custom element.</li>
+    <li>
+      We can do that using <strong>customElements.define</strong> method where
+      the 1st parameter is the tag name and 2nd is the element that we created
+      in the previous step.
+    </li>
+    <li>Remove the bootstrap array from the metadata befor building.</li>
+    <li>
+      Now we need to create a file called concat.js where we need to concat the
+      js files that we will get after build.
+    </li>
+    <li>Install concat package.</li>
+    <li>
+      Create a new script called bundle in package.json and assign it the
+      command <strong>ng build --output-hashing none && node concat.js</strong>
+    </li>
+    <li>
+      Now copy the scipt file and add it to any html file and use the app
+      selector to display the element.
+    </li>
+    <li>
+      If there are any input prop then they are comverted as "myName" =>
+      "my-name" and we can get the events by adding event listners.
+    </li>
+  </ul>
+</div>

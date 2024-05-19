@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { AngularFundamentalsComponent } from './features/angular-fundamentals/angular-fundamentals.component';
 import { AngularInterviewQuestionsComponent } from './features/angular-interview-questions/angular-interview-questions.component';
 import { CompilationProcessComponent } from './features/compilation-process/compilation-process.component';
+import { AngularElementsComponent } from './features/angular-elements/angular-elements.component';
 
 export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
 
@@ -63,6 +64,7 @@ export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
     AngularFundamentalsComponent,
     AngularInterviewQuestionsComponent,
     CompilationProcessComponent,
+    AngularElementsComponent,
   ],
   imports: [
     BrowserModule,
