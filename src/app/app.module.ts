@@ -33,6 +33,18 @@ import { AngularFundamentalsComponent } from './features/angular-fundamentals/an
 import { AngularInterviewQuestionsComponent } from './features/angular-interview-questions/angular-interview-questions.component';
 import { CompilationProcessComponent } from './features/compilation-process/compilation-process.component';
 import { AngularElementsComponent } from './features/angular-elements/angular-elements.component';
+import { WorkersComponent } from './features/workers/workers.component';
+import { PrototypesComponent } from './features/prototypes/prototypes.component';
+import { NgrxDemoComponent } from './features/ngrx-demo/ngrx-demo.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { NgrxFormComponent } from './features/ngrx-demo/components/ngrx-form/ngrx-form.component';
+import { NgrxDisplayComponent } from './features/ngrx-demo/components/ngrx-display/ngrx-display.component';
+import { dataReducer } from './features/ngrx-demo/store/reducers/demo.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { DemoEffect } from './features/ngrx-demo/store/effects/demo.effect';
+import { ChangeDetectionComponent } from './features/change-detection/change-detection.component';
+import { DecoratorsComponent } from './features/decorators/decorators.component';
 
 export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
 
@@ -65,6 +77,13 @@ export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
     AngularInterviewQuestionsComponent,
     CompilationProcessComponent,
     AngularElementsComponent,
+    WorkersComponent,
+    PrototypesComponent,
+    NgrxDemoComponent,
+    NgrxFormComponent,
+    NgrxDisplayComponent,
+    ChangeDetectionComponent,
+    DecoratorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +92,8 @@ export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    StoreModule.forRoot({ data: dataReducer }),
+    EffectsModule.forRoot([DemoEffect]),
   ],
   providers: [{ provide: CHILD_TOKEN, useClass: ChildService }],
   bootstrap: [AppComponent],

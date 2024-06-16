@@ -148,3 +148,58 @@
     </li>
   </ul>
 </div>
+
+<div class="wrapper">
+  <h3>Different js files found in build</h3>
+  <ul>
+    <li>
+      <strong>vendor.js</strong> :
+      <ul>
+        <li>This is generated durring the build process of an Angular app.</li>
+        <li>
+          It contains all the external libraries on which our project relias
+          like Rxjs, Angular Material, etc.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>polyfills.js</strong> :
+      <ul>
+        <li>
+          It plays a vital role in ensuring that our angular application runs
+          smoothly across different browsers and versions.
+        </li>
+        <li>
+          It provides modern JS features to old browsers which does not support
+          them directly.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>main.js</strong>:
+      <ul>
+        <li>It is the entry point of our angular application.</li>
+        <li>
+          It contains the bootstrap logic and initialise and launches our
+          Angular application.
+        </li>
+        <li>
+          When the browser loads main.js, it triggers the Angular Framwork to
+          start which in turn bootstraps to app-root.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>runtime.js</strong> :
+      <ul>
+        <li>
+          It provides the runtime environment necessary to run our Angular app.
+        </li>
+        <li>
+          It contains the core angular runtime code, which helps angular to
+          achieve change-detection, dendency injection ,routing,etc.
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

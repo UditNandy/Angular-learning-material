@@ -1,0 +1,8 @@
+<div *ngFor="let detail of data$ | async">
+  Name:{{ detail.name }} Age:{{ detail.age }}
+</div>
+<div>
+  <input placeholder="name" [(ngModel)]="name" />
+  <input placeholder="Age" type="number" [(ngModel)]="age" />
+  <button (click)="addData()">Add</button>
+</div>

@@ -1,0 +1,45 @@
+<h2>Change Detection</h2>
+<div class="wrapper">
+  <ul>
+    <li>
+      Angular Runs a change detection cycle whenever any state gets changed or
+      any event is triggered.
+    </li>
+    <li>
+      This is really important as it helps us to keep our template and class
+      file in sync with each other.
+    </li>
+    <li>
+      Change detection can happen either by two ways :
+      <ul>
+        <li>
+          <strong>default</strong> : Here change detection will run for all the
+          changes and it might hamper the performance. Example : If change
+          detection cycle runs on the app component then all the child
+          component's change detection cycle will also run.
+        </li>
+        <li>
+          <strong>by push</strong> : Here we will be asking angular when to
+          check for any change or run the change detection cycle. We can use
+          changeDetectorRef to play with changeDetection cycle. It has the
+          following properties
+          <ul>
+            <li>
+              <strong>Detach</strong> : It will detach the change detection
+            </li>
+            <li>
+              <strong>Reattach</strong> : It will reattach the change detection
+            </li>
+            <li>
+              <strong>DetectChange</strong> : Here we will be able to detect
+              changes even if the change detection is detached.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <input type="text" [(ngModel)]="text" />
+  Text is: {{ text }}
+  <button (click)="reattach()">Reattach change detection</button>
+</div>

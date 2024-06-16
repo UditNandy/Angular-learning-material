@@ -1,0 +1,120 @@
+<h2>NGRX</h2>
+<div class="wrapper">
+  <ul>
+    <li>
+      It is a framework which helps us to build reactive applications and helps
+      in managing states globally.
+    </li>
+    <li>It is a combination rxjs and redux.</li>
+    <li>
+      It also helps us in storing already fetched data and using it whenever
+      needed assuming the data doesnot change.
+    </li>
+    <li>
+      If the data also changes then also we can have a functionality like pull
+      to refresh like in instagram feeds.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>How ngrx works</h3>
+  <ul>
+    <li>There are 3 parts in redux</li>
+    <ul>
+      <li>
+        <strong>store</strong>: It is a central repository that maintains the
+        state of your application. It follows the Redux pattern and provides a
+        single source of truth for the state, making it predictable and easy to
+        manage.
+      </li>
+      <li>
+        <strong>actions</strong> : It describes unique events that are
+        dispatched from the components and services.
+        <ul>
+          <li>
+            Any event performed in the component need to dispatch action using
+            action creator.
+          </li>
+          <li>Each action has the type property.</li>
+          <li>Action name should be unique.</li>
+          <li>Using payload option we can send data.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>reducers</strong> : State changes are calculated by pure
+        functions known as reducers. They take the current state and the latest
+        action to compute the new state.
+        <ul>
+          <li>
+            These are pure functions which takes action and initial state as
+            input.
+          </li>
+          <li>
+            Reducers will compute the new data using actions and initial state.
+          </li>
+          <li>The updated state will be available in the store.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>selectors</strong> : These are used to fetch the particular
+        information from the store and then we can use these in our components.
+      </li>
+      <li>
+        <strong>effects</strong> : Effect is a service which listen to all the
+        actions, react to those actions and returns another action. We can make
+        dispatch false so that it doesnot return any other action. By default
+        they dispatch actions.
+      </li>
+      <li>
+        <strong>state</strong> :
+        <ul>
+          <li>It is an object which can hold any data.</li>
+          <li>
+            Here the state is a list of global variables which we want to use
+            across the application.
+          </li>
+          <li>
+            We can modify the properties in a state but we cannot remove or
+            delete any property from the state.
+          </li>
+          <li>
+            Functions, class instances, dom elements,etc cannot be saved in
+            state.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Steps of updating the state in store</h3>
+  <ul>
+    <li>At first we will dispatch an action from the component.</li>
+    <li>This action will be used by reducers.</li>
+    <li>
+      Reducers will take the action and the initial state and compute the new
+      value.
+    </li>
+    <li>The new value will be updated in the store.</li>
+    <li>
+      Once the value is updated in the store it will emit an observable which
+      will be subscribed by the selectors and we will get the updated values.
+    </li>
+    <li>
+      Suppose we are dependend on some api or service for data fetching, so in
+      that case the action will trigger an effect and the effect will get the
+      required data from the service.
+    </li>
+    <li>
+      Effect then pass the data to the action and then the data gets updated
+      using the above steps in the store.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Example</h3>
+  <app-ngrx-display></app-ngrx-display>
+</div>

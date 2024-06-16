@@ -19,6 +19,11 @@ import { AngularFundamentalsComponent } from './features/angular-fundamentals/an
 import { AngularInterviewQuestionsComponent } from './features/angular-interview-questions/angular-interview-questions.component';
 import { CompilationProcessComponent } from './features/compilation-process/compilation-process.component';
 import { AngularElementsComponent } from './features/angular-elements/angular-elements.component';
+import { WorkersComponent } from './features/workers/workers.component';
+import { PrototypesComponent } from './features/prototypes/prototypes.component';
+import { NgrxDemoComponent } from './features/ngrx-demo/ngrx-demo.component';
+import { ChangeDetectionComponent } from './features/change-detection/change-detection.component';
+import { DecoratorsComponent } from './features/decorators/decorators.component';
 
 const routes: Routes = [
   { path: 'angular-fundamentals', component: AngularFundamentalsComponent },
@@ -46,6 +51,10 @@ const routes: Routes = [
     component: PipesViewComponent,
   },
   {
+    path: 'decorators',
+    component: DecoratorsComponent,
+  },
+  {
     path: 'css-practice',
     component: CssPracticeComponent,
   },
@@ -62,12 +71,28 @@ const routes: Routes = [
     component: AngularElementsComponent,
   },
   {
+    path: 'workers',
+    component: WorkersComponent,
+  },
+  {
+    path: 'prototypes',
+    component: PrototypesComponent,
+  },
+  {
     path: 'js-interview',
     component: JsInterviewComponent,
   },
   {
     path: 'angular-interview-questions',
     component: AngularInterviewQuestionsComponent,
+  },
+  {
+    path: 'ngrx',
+    component: NgrxDemoComponent,
+  },
+  {
+    path: 'change-detection',
+    component: ChangeDetectionComponent,
   },
   { path: '**', component: NotfoundComponent },
 ];
