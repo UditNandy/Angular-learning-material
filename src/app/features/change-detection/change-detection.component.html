@@ -19,10 +19,19 @@
           component's change detection cycle will also run.
         </li>
         <li>
-          <strong>by push</strong> : Here we will be asking angular when to
-          check for any change or run the change detection cycle. We can use
-          changeDetectorRef to play with changeDetection cycle. It has the
-          following properties
+          <strong>OnPush</strong> : By using OnPush statergy change detection
+          for the component will only work under the following circumstances :
+          <ul>
+            <li>
+              If the input properties are changed and that also reference of the
+              input properties got changed.
+            </li>
+            <li>Any change occured in the child.</li>
+            <li>Subscribing to an observable.</li>
+            <li>Or manually using change detection methods.</li>
+          </ul>
+
+          Methods of changeDetectorRef :
           <ul>
             <li>
               <strong>Detach</strong> : It will detach the change detection
@@ -37,6 +46,21 @@
           </ul>
         </li>
       </ul>
+    </li>
+    <li>
+      <strong>Zone js</strong> : It refers to a context that helps manage and
+      track asynchronous operations. They are used to automatically trigger
+      change detection whenever any asyn event occur.
+    </li>
+    <li>
+      <strong>Zone.js</strong> : It is a library that provides execution
+      contexts(zones) which are responsible for handling change detection by
+      events from async operations.
+    </li>
+    <li>
+      <strong>NgZone</strong> : It is a service which provides functionalities
+      to manually handle zones, add something in the zone or remove something
+      out of it.
     </li>
   </ul>
   <input type="text" [(ngModel)]="text" />
