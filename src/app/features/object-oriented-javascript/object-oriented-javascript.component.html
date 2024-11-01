@@ -1,0 +1,134 @@
+<h2>Object Oriented Javascript</h2>
+<div class="wrapper">
+  <ul>
+    <li>
+      It is a programing paradigm where real world entites are treated like
+      objects.
+    </li>
+    <li>
+      Example person will be treated like {{ "{name:'Udit' ; age:'25'}" }}
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h4>Constructor Function</h4>
+  <ul>
+    <li>
+      It is a normal function which is used to create template for creating
+      multiple objects.
+    </li>
+    <li>
+      It is generally a function which acts like a template for creating
+      objects.
+    </li>
+  </ul>
+  <div><strong>new</strong> keyword</div>
+  <div style="padding: 10px 10px 0px 10px">
+    It does 3 things : Example :
+    <strong>let john = new Person('John','22')</strong>
+  </div>
+  <ul>
+    <li>
+      First creates an empty object on function constructor.
+      <strong>let john = {{ "{}" }} </strong>
+    </li>
+    <li>
+      Makes sure that this variable inside function constructor points to the
+      newly created empty object.
+      <strong>this=john; john.name=name ; john.age=age</strong>
+    </li>
+    <li>
+      Once the properties and methods are set new keyword will return the this
+      variable without explicitly returning this .
+    </li>
+    <li>
+      <strong>Note </strong> : Always remeber if you are creating a normal
+      object using <strong>{{ "{}" }}</strong> the it is a shorthand of
+      <strong>new Object({{ "{}" }})</strong>
+    </li>
+    <li>
+      <strong>instanceof</strong> operator returns true if the object at left
+      hand side is an instance of the object at right hand side
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h4>Prototype</h4>
+  <ul>
+    <li>In javascript each and every object has a prototype property.</li>
+    <li>
+      It is a place where we put properties or methods which we want the
+      instances of that method to inherit.
+    </li>
+    <li>
+      <strong>Prototype</strong> is always associated with the constructor
+      function. <strong>__proto__</strong> is always associated with the
+      instances of that function constructor.
+    </li>
+    <li>
+      In every object or arrays , etc you can always see a __proto__ property.
+      It is the prototype.
+    </li>
+    <li>
+      Thats the place from where we get the .length(), .keys() and all the other
+      methods that we commonly use in our daily programing.
+    </li>
+    <li>
+      Take an example of declaring a constructor function for tempaling a user
+      blueprint.
+    </li>
+    <li>The user function will have name, dob, and calcAge method.</li>
+    <li>
+      Now if we use calcAge method as a part of constructor funtion then
+      remember for all the instances of the constructor function we will get
+      calcAge and some repetative task will take place.
+    </li>
+    <li>Here prototype will come into picture.</li>
+    <li>
+      Instead of keeping calcAge as a part of constructor function, we can
+      declare it outside and attach it to Person.prototype.
+    </li>
+    <li>
+      In this way all the object created using the constructor function will be
+      able to access calcAge but this time calcAge is a part of their prototype
+      and not their actual body.
+    </li>
+    <li><strong>udit.__proto__ === Person.prototype</strong></li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h4>Inheritance</h4>
+  <ul>
+    <li>
+      It is when one object is based on another object, i.e when one object get
+      access to the properties and methods of another objects.
+    </li>
+    <li>In javascript you can achieve inheritance using prototype.</li>
+    <li>
+      When we attach a property or method to the prototype property of that
+      object, those properties and methods can be inherited by the instantiated
+      object.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h4>Prototype Chaining</h4>
+  <ul>
+    <li>
+      It is a feature in javascript which allows objects to inherit the
+      properties and methods from other objects by creating a chain of
+      prototypes.
+    </li>
+    <li>
+      When you try to access a property or method on an object, javascript will
+      first look for that property directly on the object. If it doesnot fint
+      it, it will look for the property in its prototype and if if doesnot find
+      it there as well it will again look for the property in the prototype's
+      prototype and this will go on till the prototype is null.
+    </li>
+  </ul>
+</div>

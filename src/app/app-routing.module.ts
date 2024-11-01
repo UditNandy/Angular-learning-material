@@ -24,6 +24,7 @@ import { PrototypesComponent } from './features/prototypes/prototypes.component'
 import { NgrxDemoComponent } from './features/ngrx-demo/ngrx-demo.component';
 import { ChangeDetectionComponent } from './features/change-detection/change-detection.component';
 import { DecoratorsComponent } from './features/decorators/decorators.component';
+import { ObjectOrientedJavascriptComponent } from './features/object-oriented-javascript/object-oriented-javascript.component';
 
 const routes: Routes = [
   { path: 'angular-fundamentals', component: AngularFundamentalsComponent },
@@ -93,6 +94,10 @@ const routes: Routes = [
   {
     path: 'change-detection',
     component: ChangeDetectionComponent,
+  },
+  {
+    path: 'object-oriented-javascript',
+    component: ObjectOrientedJavascriptComponent,
   },
   { path: '**', component: NotfoundComponent },
 ];

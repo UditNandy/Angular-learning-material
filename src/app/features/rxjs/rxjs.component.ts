@@ -45,7 +45,7 @@ export class RxjsComponent implements OnInit {
     // this.callCombineLatest();
     // this.callForkJoin();
     // this.callWithLatestFrom();
-    this.callMergeMap();
+    // this.callMergeMap();
     // this.callMergeMapForSeriesApi();
     // this.callSwitchMap();
     // this.callConcatMap();
