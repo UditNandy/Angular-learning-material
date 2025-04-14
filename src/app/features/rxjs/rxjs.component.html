@@ -1,1 +1,151 @@
-<h3>Rxjs</h3>
+<h2>Rxjs</h2>
+
+<div class="wrapper">
+  <ul>
+    <li>
+      It is a library for reactive programming using Observables, making it
+      easier to work with asynchronous data streams such as events, HTTP
+      requests, or timers.
+    </li>
+    <li>
+      <strong>Observables</strong> : It is like a function which can emit values
+      asynchronously over time. It actually emits a steam of data. It can be
+      either synchronous or asynchronous.
+    </li>
+    <li>
+      <strong>Observer</strong> : It is an object where we can attach callback
+      to handle the data emitted from the observable. It consists of next,
+      error, complete.
+    </li>
+    <li>
+      <strong
+        >It represents the execution of an observable.We need to subscribe the
+        observable if we want to use the values emitted by that observable. We
+        can subscribe a single observable multiple times.
+      </strong>
+    </li>
+    <li>
+      <strong>Operators</strong> : These are pure functions which modifies the
+      emitted values.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Type of Observables</h3>
+  <ul>
+    <li>
+      <strong>Cold Observable</strong> :
+      <ul>
+        <li>
+          It is an observable which starts emitting values when we subscribe to
+          it. It means that each subscriber will get its own independent
+          execution of the observable.
+        </li>
+        <li>Example : HTTP request.</li>
+        <li>
+          They are unicasting, meaning that each subscriber gets its own
+          independent execution of the observable. This means that if multiple
+          subscribers subscribe to the same cold observable, each subscriber
+          will receive its own independent stream of values.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Hot Observable</strong> :
+      <ul>
+        <li>
+          It is an observable which starts emitting values even before we
+          subscribe to it.
+        </li>
+        <li>
+          It means that all subscribers will share the same execution of the
+          observable.
+        </li>
+        <li>Example : Subject, Behaviour Subject.</li>
+        <li>
+          Here if the observable is already subscribed then we will be able to
+          get the value in that subscription.
+        </li>
+        <li>
+          They are multicasting, meaning that all subscribers share the same
+          execution of the observable. This means that if multiple subscribers
+          subscribe to the same hot observable, they will all receive the same
+          stream of values.
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Subjects</h3>
+  An RxJS Subject is a special type of Observable that allows values to be
+  multicasted to many Observers. While plain Observables are unicast (each
+  subscribed Observer owns an independent execution of the Observable), Subjects
+  are multicast. They are like event emitters, and can be used to emit values to
+  multiple subscribers. Subjects are useful for sharing data between different
+  parts of an application, such as components or services.
+  <ul>
+    <li>
+      <strong>Subject</strong>: Doesnot keeps the last value. If value is
+      emitted before subscription then the observer will miss it.
+    </li>
+    <li>
+      <strong>BehaviourSubject</strong> : It takes a default value and always
+      holds the last value. It will not emit values to subscribers which
+      subscribed after next but they will always get the last value.
+    </li>
+    <li>
+      <strong>ReplaySubject</strong> : It remebers the last n emitted values as
+      it takes n as a buffer durring declaration. Remeber old subscribers will
+      receive all the values exactly once. New subscribers will receive the last
+      n values.
+    </li>
+    <li>
+      <strong>AsyncSubject</strong> : It emits the last value when the
+      observable completes. It will not emit any value until the observable
+      completes. We have to specify asyncSubject.complete() to get the value.
+      Here the time of subscription doesnot matters.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Operators</h3>
+  <ul>
+    <li>
+      <strong>mergeMap</strong> : It is an RxJS operator that maps each emitted
+      value from an observable to an inner observable (e.g., an API call) and
+      merges the results of all those observables concurrently. It does not wait
+      for the previous inner observable to complete before starting the next
+      one, allowing all operations to run in parallel. Here the order of
+      emission is not guarenteed.
+    </li>
+    <li>
+      <strong>concatMap</strong> : It is same as mergemap only difference is it
+      process the inner observable sequentially. It waits for the previous inner
+      observable to complete before starting the new one. Here the order of
+      emission is sequential.
+    </li>
+    <li>
+      <strong>switchMap</strong> : It cancels the inner observable if a new
+      value is emitted from the outer observable and executes the inner
+      observable for the new emitted value.
+    </li>
+    <li>
+      <strong>combineLatest</strong> : It waits for each of the input
+      observables to emit at least one value. Once all the observables have
+      emitted at least one value, it combines the latest emitted values from all
+      observables and emits them as a single array. After the initial emissions,
+      every time any of the input observables emit a new value, combineLatest
+      will emit the latest values from all the observables combined, meaning
+      that the emitted values are always the latest values from each observable.
+    </li>
+    <li>
+      <strong>forkJoin</strong> : It waits for all the input observables to
+      complete, and then it emits the last emitted value from each observable as
+      an array (or a custom object if specified). It emits value only once.
+    </li>
+  </ul>
+</div>

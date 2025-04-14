@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   Observable,
   asapScheduler,
+  asyncScheduler,
   bufferTime,
   catchError,
   combineLatest,
@@ -43,7 +44,7 @@ export class RxjsComponent implements OnInit {
     // this.callReduce();
     // this.callScan();
     // this.callCombineLatest();
-    // this.callForkJoin();
+    this.callForkJoin();
     // this.callWithLatestFrom();
     // this.callMergeMap();
     // this.callMergeMapForSeriesApi();
@@ -149,7 +150,7 @@ export class RxjsComponent implements OnInit {
     source$
       .pipe(
         concatMap((value) => {
-          return of(1, 2, 3, asapScheduler).pipe(
+          return of(1, 2, 3).pipe(
             map((innerValue) => {
               return `${value}${innerValue}`;
             })
@@ -164,7 +165,7 @@ export class RxjsComponent implements OnInit {
     source$
       .pipe(
         switchMap((value) => {
-          return of(1, 2, 3, asapScheduler).pipe(
+          return of(1, 2, 3, asyncScheduler).pipe(
             map((innerValue) => {
               return `${value}${innerValue}`;
             })
@@ -204,11 +205,11 @@ export class RxjsComponent implements OnInit {
   }
 
   callMergeMap() {
-    const source$ = of('A', 'B', 'C');
+    const source$ = of('A', 'B', 'C', asyncScheduler);
     source$
       .pipe(
         mergeMap((value) => {
-          return scheduled([1, 2, 3], asapScheduler).pipe(
+          return of(1, 2, 3, asyncScheduler).pipe(
             map((innerValue) => {
               return `${value}${innerValue}`;
             })
