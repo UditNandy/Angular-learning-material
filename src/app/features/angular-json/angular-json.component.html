@@ -1,0 +1,135 @@
+<div class="wrapper">
+  <h2>Angular JSON</h2>
+  <ul>
+    <li>
+      <strong>Note</strong> : When we use ng new we create a angular workspace
+      which contains a default application my-app.
+    </li>
+    <li>
+      <strong>$schema</strong> :
+      <ul>
+        <li>
+          It is used for defining definition and structure for rest of the
+          current JSON file.
+        </li>
+        <li>It is used to validate the structure of angular file.</li>
+        <li>
+          It ensures that the configuration file is valid and accoding to
+          Angular CLI's schema.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>version</strong> : Used to maintain the version of angular.json
+      schema.
+    </li>
+    <li>
+      <strong>newProjectRoot</strong> :
+      <ul>
+        <li>
+          It contains the default root folder where new applications/libraries
+          will be placed.
+        </li>
+        <li>It only effects the future applications/libraries.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>projects</strong> :
+      <ul>
+        <li>It contains the list of projects created in the new workspace.</li>
+        <li>
+          It is an object where key is project name and value is project
+          configuration.
+        </li>
+        <li>Against each project we will have the following properties.</li>
+        <li>
+          <strong>projectType</strong> : It states whether the current project
+          is an application or library.
+        </li>
+        <li>
+          <strong>schematics</strong> :
+          <ul>
+            <li>
+              These are templates or blueprints that help automate tasks like
+              creating components, services, modules, etc. They are built-in or
+              custom templates used to generate code, configure projects, or
+              modify project files in an Angular workspace.
+            </li>
+            <li>
+              These configurations specify the options that control how Angular
+              CLI commands, such as ng generate or ng add, behave when
+              generating or modifying components, services, or other elements.
+            </li>
+            <li>
+              Angular CLI has a set of built-in schematics for generating
+              different project parts, such as components, services, directives,
+              modules, etc. You can customize the default behavior of these
+              schematics by defining options in angular.json.
+            </li>
+            <li>
+              skipTest true : means ng g c command will not generate the spec
+              files.
+            </li>
+            <li>
+              In short these can be used to control the angular cli command or
+              add some default behaviour to the components generated using
+              angular cli like style sheet : scss , or change detection statergy
+              onPush, etc
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>root</strong> :
+          <ul>
+            <li>Base path of the app.</li>
+            <li>Empty means root of the workspace.</li>
+            <li>
+              It its blank means the project is present in root of workspace.
+            </li>
+          </ul>
+        </li>
+        <li><strong>sourceRoot</strong> : Means the root of the src folder.</li>
+        <li>
+          <strong>prefix</strong> : Used to specify prefix of component
+          selectors. In our case it is app. We can set it to something else.
+        </li>
+        <li>
+          <strong>architect</strong> : It contains the build, serve, test, i18,
+          etc configurations.
+          <ul>
+            <li>
+              <strong>build</strong>
+              <ul>
+                <li>
+                  <strong>
+                    builder:{{ "@angular-devkit/build-angular:browser" }}
+                  </strong>
+                  : Defines how the build process should be done. The value here
+                  is a npm package which contains various builders. The builder
+                  is responsible for the build process of the project.
+                </li>
+                <li>
+                  <strong>options</strong>: Contains outputPath, index, main,
+                  pollyfills, tsconfig, assets, styles, scripts, etc. These are
+                  the entry points for the application. When the build will be
+                  generated these entry points will be used to generate the
+                  final bundle.
+                </li>
+                <li>
+                  <strong>configurations</strong> : It contains production,
+                  development configurations. These production and development
+                  configurations contains instructions for
+                  fileReplacements,budgets,hashing,etc.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>defaultProject</strong> : It contains the defaut project of the
+      angular app.
+    </li>
+  </ul>
+</div>

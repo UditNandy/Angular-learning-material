@@ -46,6 +46,7 @@ import { DemoEffect } from './features/ngrx-demo/store/effects/demo.effect';
 import { ChangeDetectionComponent } from './features/change-detection/change-detection.component';
 import { DecoratorsComponent } from './features/decorators/decorators.component';
 import { ObjectOrientedJavascriptComponent } from './features/object-oriented-javascript/object-oriented-javascript.component';
+import { AngularJsonComponent } from './features/angular-json/angular-json.component';
 
 export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
 
@@ -86,6 +87,7 @@ export const CHILD_TOKEN = new InjectionToken<ChildService>('CHILD_SERVICE');
     ChangeDetectionComponent,
     DecoratorsComponent,
     ObjectOrientedJavascriptComponent,
+    AngularJsonComponent,
   ],
   imports: [
     BrowserModule,

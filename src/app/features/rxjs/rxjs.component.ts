@@ -60,7 +60,11 @@ export class RxjsComponent implements OnInit {
 
   callLast() {
     //It gives the last emitted value
-    of(1, 2, 3).pipe(last()).subscribe(console.log);
+    of(1, 2, 3)
+      .pipe(last())
+      .subscribe((val) => {
+        console.log(val);
+      });
   }
 
   callColdObservable() {
@@ -97,7 +101,7 @@ export class RxjsComponent implements OnInit {
     */
     interval(100)
       .pipe(
-        concatMap((val) => {
+        switchMap((val) => {
           return of(val).pipe(delay(1000));
         })
       )

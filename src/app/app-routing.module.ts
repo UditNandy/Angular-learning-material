@@ -25,9 +25,12 @@ import { NgrxDemoComponent } from './features/ngrx-demo/ngrx-demo.component';
 import { ChangeDetectionComponent } from './features/change-detection/change-detection.component';
 import { DecoratorsComponent } from './features/decorators/decorators.component';
 import { ObjectOrientedJavascriptComponent } from './features/object-oriented-javascript/object-oriented-javascript.component';
+import { DsaModule } from './features/dsa/dsa.module';
+import { AngularJsonComponent } from './features/angular-json/angular-json.component';
 
 const routes: Routes = [
   { path: 'angular-fundamentals', component: AngularFundamentalsComponent },
+  { path: 'angular-json', component: AngularJsonComponent },
   { path: 'rxjs', component: RxjsComponent },
   { path: 'reactiveForm', component: ReactiveFormComponent },
   { path: 'templateForm', component: TemplateFormComponent },
@@ -98,6 +101,10 @@ const routes: Routes = [
   {
     path: 'object-oriented-javascript',
     component: ObjectOrientedJavascriptComponent,
+  },
+  {
+    path: 'dsa',
+    component: DsaModule,
   },
   { path: '**', component: NotfoundComponent },
 ];
