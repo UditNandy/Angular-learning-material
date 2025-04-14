@@ -203,3 +203,38 @@
     </li>
   </ul>
 </div>
+
+<div class="wrapper">
+  <h3>proxy.config.js</h3>
+  <ul>
+    <li>
+      It is an object where keys can be used to find the endpoints starting with
+      that key.
+    </li>
+    <li><strong>target</strong> : This is the target backend server.</li>
+    <li>
+      <strong>secure</strong> : A flag to decide whether to verify SSL
+      certificates when using HTTPS in the target. Tells the proxy to validate /
+      not validate the backend's SSL certificate.
+    </li>
+    <li>
+      <strong>changeOrigin</strong> : Tells the proxy server to modify the Host
+      header in the outgoing request to match the target server. Some backend
+      servers block requests if the Host header does not match their domain. In
+      the request headers we can find :authority: which is the current host
+      where the app is being served.So this will be changed to the target host.
+    </li>
+    <li>
+      <strong>logLevel</strong> : Controls the amount of log output the proxy
+      gives in your terminal. Values are : debug, info, warn, error, silent.
+    </li>
+    <li>
+      <strong>pathRewrite</strong> : Allows you to modify the request path
+      before it is sent to the backend.
+    </li>
+    <li>
+      We can add it in ng serve command
+      <strong>ng serve --config proxy.config.json</strong>
+    </li>
+  </ul>
+</div>
