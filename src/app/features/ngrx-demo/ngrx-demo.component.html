@@ -115,6 +115,168 @@
 </div>
 
 <div class="wrapper">
+  <h3>Props Action</h3>
+  <ul>
+    <li>
+      If we want to add any payload to our action then we can use props action.
+    </li>
+    <li>
+      Here while creating the action using createAction method we need to pass
+      another param along with the action type param (which is the 1st param).
+    </li>
+    <li>
+      We have to pass the 2nd param as
+      <strong>{{ "  props<{ value: number }>()" }}</strong
+      >. We can also keep the data type of props as any.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Ngrx Selectors</h3>
+  <ul>
+    <li>We can simply subscribe the selector using store.selector.</li>
+    <li>But doing so will create a performance issue.</li>
+    <li>
+      Imagine a senario where the store has lot of properties but the components
+      only needs one or 2 properties.
+    </li>
+    <li>
+      As in the component we have subscribed the store the subscription will
+      work even if other states are updated.
+    </li>
+    <li>If we use ngrx selector then we can avoid these type of issues.</li>
+    <li>We can create a seperate file for selectors.</li>
+    <li>
+      At first we will have to get the state of entire store using
+      <strong>createFeatureSelector</strong>. It is a function which feature
+      name as a param. It is actually the name with which that particular state
+      is linked in the store in app.module StoreModule.forRoot()
+    </li>
+    <li>
+      Now we can create indivisual selector for indivisual properties using
+      <strong>createSelector</strong>. It take the state variable which we got
+      from <strong>createFeatureSelector</strong> and also a callback function
+      which holds the current state corresponding to the feature name. We can
+      keep it in a variable and export it.
+    </li>
+    <li>
+      Now previously we were doing this.store.select('featureKey') now we can
+      replace featureKey string with the selector that we are exporting.
+    </li>
+    <li>
+      We can also pass some parameters to the selector like we can write a
+      custom method and we will be returning a selector from that method. We can
+      take a param in the method and we can filter out the required state
+      property from the method and display it.
+    </li>
+    <li>
+      Example :
+      <strong>
+        <pre><code>
+export const getBloById = (blogId: number) =&gt;
+  createSelector(getBlogState, (state) =&gt; {{ '{' }}
+    return state.blogList.find((blog: any) =&gt; blog.id === blogId);
+  {{ '}' }});
+</code></pre>
+      </strong>
+      In this way we can create a custom selector by passing params only.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Effects</h3>
+  <ul>
+    <li>
+      Effects in Angular (specifically in NgRx) are needed to handle side
+      effects — like API calls, timers, navigation, notifications — things that
+      happen outside the store.
+    </li>
+    <li>They generally sit between actions and reducers.</li>
+    <li>We can use them for api calls, etc.</li>
+    <li>
+      As reducers are pure functions its not advisable to call api inside
+      reducers.
+    </li>
+    <li>
+      We can also call the apis seperatly and then update the store but ngrx
+      also provides a way to handle it in a clearer way.
+    </li>
+    <li>Effects helps us to isolate the components from services.</li>
+    <li>
+      They are like services and they will listen to all the actions dispatched.
+    </li>
+    <li>
+      Code Snippet :
+      <strong>
+        <pre><code>
+blogEffect = createEffect(() =>
+  this.action$.pipe(
+    ofType('loadBlog'),
+    exhaustMap((actions) =>
+      this.httpClient
+        .get('./assets/dummy.json')
+        .pipe(map((data: any) => loadBlogSuccess(&#123; input: data &#125;)))
+    )
+  )
+);
+</code></pre>
+      </strong>
+    </li>
+    <li>
+      Here we have created a effect which catches the loadBlog action, using
+      <strong>ofType</strong> method from <b>ngrx/effects</b>.
+    </li>
+    <li>
+      We have to inject <b>Actions</b> from <b>@ngrx/store</b> which will
+      trigger for all the actions dispatched. Here we have kept tht instance in
+      <b>action$</b>.
+    </li>
+    <li>
+      Now we will trigger an api call and based on success or failure we are
+      going to call another success/failuer action.
+    </li>
+    <li>
+      We generally create seperate effects class for seperate big properties.
+    </li>
+    <li>
+      We have to register all the effects in app.module.
+      <strong>
+        <pre><code>    EffectsModule.forRoot([BlogEffect])</code></pre>
+      </strong>
+    </li>
+    <li>We can think it like providing interceptors.</li>
+    <li>
+      If we want to add any payload to the api call we can get it using props
+      action and we can get the action inside the params of exhaustMap or
+      subsequent operator.
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Ngrx Router Store</h3>
+  <ul>
+    <li>
+      NgRx Router Store lets you sync Angular Router state into the NgRx Store
+      automatically.
+    </li>
+    <li>
+      So you can access router info like url, params, queryParams, etc. directly
+      from the store!
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <h3>Entities</h3>
+  <ul>
+    <li></li>
+  </ul>
+</div>
+
+<div class="wrapper">
   <h3>Example</h3>
   <app-ngrx-display></app-ngrx-display>
 </div>

@@ -13,7 +13,7 @@ export class DemoEffect {
   loadDemoUsers$ = createEffect(() =>
     this.action.pipe(
       ofType(getData),
-      exhaustMap(() =>
+      exhaustMap((state) =>
         this.demoService.getAllData().pipe(
           map((user: any) => {
             console.log('From effect ', user);
